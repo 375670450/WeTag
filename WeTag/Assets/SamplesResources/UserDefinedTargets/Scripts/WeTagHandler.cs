@@ -122,6 +122,8 @@ public class WeTagHandler : MonoBehaviour
 
     private TagOption _tagOption = TagOption.Celebrity;
 
+    private Vector3 tagOriginScale = new Vector3(0.4f, 0.4f, 0.4f);
+
     public TagOption tagOption{
         get{
             return _tagOption;
@@ -225,7 +227,10 @@ public class WeTagHandler : MonoBehaviour
 
                     //hit.collider.GetComponent<Renderer>().material.color = new Color(0.0f, 0.0f, 0.4f);
                     var rect = tagObject.GetComponent<RectTransform>();
-                    var origin = tagObject.localScale;
+
+					//Debug.Log(tagOriginScale);
+					//Debug.Log(tagObject.localScale);
+                    var origin = tagOriginScale;
                     var after = origin * 1.2f;
 
                     var scaleback = UIAnimator.Scale(rect, after, origin, 0.2f);
@@ -380,6 +385,8 @@ public class WeTagHandler : MonoBehaviour
             yield return null;
         }
 
+        currentDisplayWikiName = name;
+
         UnityWebRequest req = UnityWebRequest.Get(string.Format(mediaWikiURL, name));
 
         yield return req.Send();
@@ -401,7 +408,7 @@ public class WeTagHandler : MonoBehaviour
 
             foreach (var item in resp["query"]["pages"].Children)
             {
-                if (item["title"].ToString().Contains(name) && item["index"].AsInt == 1)
+                if ( item["index"].AsInt == 1)
                 {
                     //minIndex = System.Math.Max(minIndex, item["index"]);
                     //boxText = item["extract"];
@@ -566,6 +573,8 @@ public class WeTagHandler : MonoBehaviour
         title.sizeDelta = new Vector2(titleHeight * 5, titleHeight);
         GameObject.Find("InfoTitle").gameObject.SetActive(false);
         isDetailShown = false;
+
+        //tagOriginScale = celebrityTag.transform.localScale;
     }
 
     #endregion
