@@ -93,6 +93,8 @@ public class WeTagHandler : MonoBehaviour
 
     public static Vuforia.Image.PIXEL_FORMAT mPixelFormat = Vuforia.Image.PIXEL_FORMAT.RGB888;
 
+    public GameObject scannerImage;
+
 	#endregion
 
 	#region PRIVATE_MEMBERS
@@ -102,13 +104,14 @@ public class WeTagHandler : MonoBehaviour
 	/// </summary>
 	private string cognitiveAPIAuth = "974c0cbdf8b244c28024aaab33ab2fdb";
 
+    private bool _isRecognizing = false;
+
 	/// <summary>
 	/// The cognitive URI.
 	/// </summary>
 	private string cognitiveURI = "https://api.cognitive.azure.cn/vision/v1.0/models/{0}/analyze";
 
 	private string mediaWikiURL = "http://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrsearch={0}&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext";
-	
 
 	private Texture2D captureImage;
 
@@ -183,6 +186,22 @@ public class WeTagHandler : MonoBehaviour
 		}
 	}
 
+    public bool isRecognizing{
+        get{
+            return _isRecognizing;
+        }
+        set{
+            if( _isRecognizing != value ){
+                if( value ){
+                    scannerImage.SetActive(true);
+                }else{
+                    scannerImage.SetActive(false);
+                }
+			}
+			_isRecognizing = value;
+        }
+    }
+
 
 	#endregion
 
@@ -197,6 +216,11 @@ public class WeTagHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if( scannerImage && scannerImage.activeInHierarchy ){
+            scannerImage.transform.Rotate(0, 0, -2);
+        }
+
         Vector3 touchPos = new Vector3();
         bool isTouch = false;
 
@@ -381,9 +405,9 @@ public class WeTagHandler : MonoBehaviour
         if ( currentDisplayWikiName == null )
             currentDisplayWikiName = name;
 
-        if( currentDisplayWikiName == name ){
-            yield return null;
-        }
+        //if( currentDisplayWikiName == name ){
+        //    yield return null;
+        //}
 
         currentDisplayWikiName = name;
 
@@ -412,7 +436,7 @@ public class WeTagHandler : MonoBehaviour
                 {
                     //minIndex = System.Math.Max(minIndex, item["index"]);
                     //boxText = item["extract"];
-                    Debug.Log("BoxText = " + item["extract"]);
+                    //Debug.Log("BoxText = " + item["extract"]);
                     //boxText = Regex.Replace(boxText, "<[^>]*>", "");
                     var infoText = GameObject.Find("InfoText").GetComponent<Text>();
                     infoText.text = item["extract"];
@@ -427,8 +451,18 @@ public class WeTagHandler : MonoBehaviour
                 }
             }
 
-            if (!isFound)
-                Debug.Log("No wiki items");
+			if (!isFound) {
+				Debug.Log("No wiki items");
+				var infoText = GameObject.Find("InfoText").GetComponent<Text>();
+                infoText.text = string.Format("Cannot find any introduction of {0} on Wikipedia", name);
+
+				var title = GameObject.Find("WeTagCanvas").transform.Find("InfoTitle").gameObject;
+				title.GetComponentInChildren<Text>().text = "About " + name;
+				title.SetActive(true);
+
+				//Debug.Log(GameObject.Find("WeTagCanvas").transform.Find("InfoTitle") == null);
+				isDetailShown = true;
+			}
         }
         //yield return null;
     }
@@ -574,6 +608,7 @@ public class WeTagHandler : MonoBehaviour
         GameObject.Find("InfoTitle").gameObject.SetActive(false);
         isDetailShown = false;
 
+        scannerImage.SetActive(false);
         //tagOriginScale = celebrityTag.transform.localScale;
     }
 

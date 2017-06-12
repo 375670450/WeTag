@@ -25,9 +25,7 @@ public class UDTEventHandler : MonoBehaviour, IUserDefinedTargetEventHandler
 
     private Dictionary<string, string> celebrityTags = new Dictionary<string, string>();
 
-    private bool isRecognizing = false;
-
-	public GameObject tagPlane;
+    public GameObject tagPlane;
 
 	public int LastTargetIndex
 	{
@@ -180,10 +178,10 @@ public class UDTEventHandler : MonoBehaviour, IUserDefinedTargetEventHandler
 	{
 		clearTags();
 
-        if( isRecognizing ){
+        if( wetag.isRecognizing ){
             return;
 		}
-		isRecognizing = true;
+		wetag.isRecognizing = true;
 
         StartCoroutine(wetag.RecognizeObject(OnRecognizeFinish));
 
@@ -248,7 +246,7 @@ public class UDTEventHandler : MonoBehaviour, IUserDefinedTargetEventHandler
 				}
 				updateTags(recogItemMap);
             }
-			isRecognizing = false;
+			wetag.isRecognizing = false;
 		}
 	}
 
