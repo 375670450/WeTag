@@ -93,6 +93,8 @@ public class WeTagHandler : MonoBehaviour
 
     public static Vuforia.Image.PIXEL_FORMAT mPixelFormat = Vuforia.Image.PIXEL_FORMAT.RGB888;
 
+    public GameObject WeTagCanvas;
+
     public GameObject scannerImage;
 
 	#endregion
@@ -120,8 +122,6 @@ public class WeTagHandler : MonoBehaviour
     private string boxText = "box";
 
 	private bool _isDetailShown = false;
-
-    private float titlePosition;
 
     private TagOption _tagOption = TagOption.Celebrity;
 
@@ -152,7 +152,6 @@ public class WeTagHandler : MonoBehaviour
         }
     }
 
-
 	public bool isDetailShown
 	{
 		get
@@ -161,28 +160,32 @@ public class WeTagHandler : MonoBehaviour
 		}
 		set
 		{
-			if (_isDetailShown != value)
+            bool origin = _isDetailShown;
+			_isDetailShown = value;
+
+			if (origin != value)
 			{
 				float duration = 0.2f;
 
-				var infoTitle = GameObject.Find("InfoTitle").GetComponent<RectTransform>();
+				var infoTitle = WeTagCanvas.transform.Find("InfoTitle").GetComponent<RectTransform>();
 				var infoContent = GameObject.Find("InfoBackground").GetComponent<RectTransform>();
 
 				if (value)
 				{        // hide -> show
+                    Debug.Log("HIDE->SHOW");
 					var scaleto = UIAnimator.ScaleTo(infoContent, Vector3.one, duration);
-					var move = UIAnimator.MoveVerticalTo(infoTitle, titlePosition, duration).SetCallback(scaleto.Play);
+					var move = UIAnimator.MoveVerticalTo(infoTitle, 0.2f, duration).SetCallback(scaleto.Play);
 					move.Play();
-				}
+				} 
 				else
-				{          // show -> hide
+				{          // show -> hide  
+                    Debug.Log("SHOW->HIDE");
 					var move = UIAnimator.MoveVerticalTo(infoTitle, 0, duration);
 					var scaleto = UIAnimator.ScaleTo(infoContent, new Vector3(0, 1, 0), duration).SetCallback(move.Play);
 					//move.Play();
 					scaleto.Play();
 				}
 			}
-			_isDetailShown = value;
 		}
 	}
 
@@ -434,18 +437,13 @@ public class WeTagHandler : MonoBehaviour
             {
                 if ( item["index"].AsInt == 1)
                 {
-                    //minIndex = System.Math.Max(minIndex, item["index"]);
-                    //boxText = item["extract"];
-                    //Debug.Log("BoxText = " + item["extract"]);
-                    //boxText = Regex.Replace(boxText, "<[^>]*>", "");
                     var infoText = GameObject.Find("InfoText").GetComponent<Text>();
                     infoText.text = item["extract"];
 
-                    var title = GameObject.Find("WeTagCanvas").transform.Find("InfoTitle").gameObject;
+                    var title = WeTagCanvas.transform.Find("InfoTitle").gameObject;
                     title.GetComponentInChildren<Text>().text = "About " + name;
                     title.SetActive(true);
 
-                    //Debug.Log(GameObject.Find("WeTagCanvas").transform.Find("InfoTitle") == null);
                     isDetailShown = true;
                     isFound = true;
                 }
@@ -456,24 +454,23 @@ public class WeTagHandler : MonoBehaviour
 				var infoText = GameObject.Find("InfoText").GetComponent<Text>();
                 infoText.text = string.Format("Cannot find any introduction of {0} on Wikipedia", name);
 
-				var title = GameObject.Find("WeTagCanvas").transform.Find("InfoTitle").gameObject;
+				var title = WeTagCanvas.transform.Find("InfoTitle").gameObject;
 				title.GetComponentInChildren<Text>().text = "About " + name;
 				title.SetActive(true);
 
-				//Debug.Log(GameObject.Find("WeTagCanvas").transform.Find("InfoTitle") == null);
 				isDetailShown = true;
 			}
         }
         //yield return null;
     }
 
-    public void showNoRecogItemDialog(){
+    public void showNoRecogItemDialog(string message, string title = "Info"){
 		//boxText = 
 		var infoText = GameObject.Find("InfoText").GetComponent<Text>();
-		infoText.text = "Cannot recognize any " + (tagOption == TagOption.Celebrity ? "celebrities" : "landmarks");
-        var title = GameObject.Find("WeTagCanvas").transform.Find("InfoTitle").gameObject;
-        title.GetComponentInChildren<Text>().text = "Info";
-		title.SetActive(true);
+        infoText.text = message;
+        var infoTitle = WeTagCanvas.transform.Find("InfoTitle").gameObject;
+        infoTitle.GetComponentInChildren<Text>().text = title;
+		infoTitle.SetActive(true);
 		isDetailShown = true;
     }
 
@@ -601,7 +598,7 @@ public class WeTagHandler : MonoBehaviour
         background.localScale = new Vector3();
 
 		RectTransform title = GameObject.Find("InfoTitle").GetComponent<RectTransform>();
-		titlePosition = backgroundHeight / Screen.height;
+		
         title.position.Set(0, 0, 0);
         float titleHeight = backgroundHeight / 3;
         title.sizeDelta = new Vector2(titleHeight * 5, titleHeight);

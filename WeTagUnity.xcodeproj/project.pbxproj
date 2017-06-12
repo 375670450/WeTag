@@ -17,7 +17,7 @@
 		40A48B2C1EE1156600D36E16 /* UnityUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 40A48B2A1EE1156600D36E16 /* UnityUtils.mm */; };
 		40A49B291EE116A300D36E16 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A49B281EE116A300D36E16 /* main.swift */; };
 		40A49B2D1EE1346100D36E16 /* UnityGLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A49B2C1EE1346100D36E16 /* UnityGLViewController.swift */; };
-		40F5C5D51EEC2110009DA054 /* Data in Resources */ = {isa = PBXBuildFile; fileRef = 40F5C5D41EEC2110009DA054 /* Data */; };
+		40EC24DD1EEE7E010011DB8C /* Data in Resources */ = {isa = PBXBuildFile; fileRef = 40EC24DC1EEE7E010011DB8C /* Data */; };
 		40F5DA191EEC2593009DA054 /* CrashReporter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 40F5C5D81EEC2531009DA054 /* CrashReporter.mm */; };
 		40F5DA1A1EEC2593009DA054 /* iPhone_Sensors.mm in Sources */ = {isa = PBXBuildFile; fileRef = 40F5C5DA1EEC2531009DA054 /* iPhone_Sensors.mm */; };
 		40F5DA1B1EEC2593009DA054 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 40F5C5DB1EEC2531009DA054 /* main.mm */; };
@@ -178,7 +178,7 @@
 		40A48B2A1EE1156600D36E16 /* UnityUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UnityUtils.mm; sourceTree = "<group>"; };
 		40A49B281EE116A300D36E16 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		40A49B2C1EE1346100D36E16 /* UnityGLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnityGLViewController.swift; sourceTree = "<group>"; };
-		40F5C5D41EEC2110009DA054 /* Data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Data; sourceTree = "<group>"; };
+		40EC24DC1EEE7E010011DB8C /* Data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Data; sourceTree = "<group>"; };
 		40F5C5D71EEC2531009DA054 /* CrashReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrashReporter.h; sourceTree = "<group>"; };
 		40F5C5D81EEC2531009DA054 /* CrashReporter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CrashReporter.mm; sourceTree = "<group>"; };
 		40F5C5D91EEC2531009DA054 /* iPhone_Sensors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhone_Sensors.h; sourceTree = "<group>"; };
@@ -5337,9 +5337,9 @@
 		40A48B261EE1151200D36E16 /* UnityFix */ = {
 			isa = PBXGroup;
 			children = (
+				40EC24DC1EEE7E010011DB8C /* Data */,
 				40F5C5D61EEC2531009DA054 /* Classes */,
 				40F5D82F1EEC2592009DA054 /* Libraries */,
-				40F5C5D41EEC2110009DA054 /* Data */,
 				40A48B271EE1156600D36E16 /* Unity.xcconfig */,
 				40A48B281EE1156600D36E16 /* UnityBridge.h */,
 				40A48B291EE1156600D36E16 /* UnityUtils.h */,
@@ -11167,8 +11167,8 @@
 				40A48B2B1EE1156600D36E16 /* Unity.xcconfig in Resources */,
 				40F5DAA01EEC2594009DA054 /* libil2cpp.icalls in Resources */,
 				40A46AD41EE073A400D36E16 /* Main.storyboard in Resources */,
-				40F5C5D51EEC2110009DA054 /* Data in Resources */,
 				40F5DA9F1EEC2594009DA054 /* libil2cpp.def in Resources */,
+				40EC24DD1EEE7E010011DB8C /* Data in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

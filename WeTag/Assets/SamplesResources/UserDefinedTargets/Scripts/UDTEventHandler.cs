@@ -178,13 +178,6 @@ public class UDTEventHandler : MonoBehaviour, IUserDefinedTargetEventHandler
 	{
 		clearTags();
 
-        if( wetag.isRecognizing ){
-            return;
-		}
-		wetag.isRecognizing = true;
-
-        StartCoroutine(wetag.RecognizeObject(OnRecognizeFinish));
-
 
 		if (mFrameQuality == ImageTargetBuilder.FrameQuality.FRAME_QUALITY_MEDIUM ||
 			mFrameQuality == ImageTargetBuilder.FrameQuality.FRAME_QUALITY_HIGH)
@@ -195,21 +188,32 @@ public class UDTEventHandler : MonoBehaviour, IUserDefinedTargetEventHandler
 
 			// generate a new target:
 			mTargetBuildingBehaviour.BuildNewTarget(targetName, ImageTargetTemplate.GetSize().x);
+
+            if (wetag.isRecognizing)
+            {
+                return;
+            }
+            wetag.isRecognizing = true;
+
+			StartCoroutine(wetag.RecognizeObject(OnRecognizeFinish));
 		}
 		else
 		{
 			Debug.Log("Cannot build new target, due to poor camera image quality");
-			if (mQualityDialog)
-			{
-				mQualityDialog.gameObject.SetActive(true);
-			}
+
+            wetag.showNoRecogItemDialog("Cannot build new target, due to poor camera image quality", "Low Quality Image");
+            wetag.WeTagCanvas.transform.Find("InfoTitle").gameObject.SetActive(false);
+            //if (mQualityDialog)
+			//{
+			//	mQualityDialog.gameObject.SetActive(true);
+			//}
 		}
 	}
 
 	public void CloseQualityDialog()
 	{
-		if (mQualityDialog)
-			mQualityDialog.gameObject.SetActive(false);
+		//if (mQualityDialog)
+			//mQualityDialog.gameObject.SetActive(false);
 	}
 
 
@@ -222,7 +226,8 @@ public class UDTEventHandler : MonoBehaviour, IUserDefinedTargetEventHandler
             Destroy(GameObject.Find(kv.Value));
 		}
 		celebrityTags.Clear();
-        wetag.isDetailShown = false;
+
+		wetag.isDetailShown = false;
 	}
 	#endregion //PUBLIC_METHODS
 
@@ -237,7 +242,8 @@ public class UDTEventHandler : MonoBehaviour, IUserDefinedTargetEventHandler
             var array = wetag.tagOption == TagOption.Celebrity ? res.celebrities : res.landmarks;
             var recogItemMap = new Dictionary<string, RecogItem>();
             if( array.Length == 0 ){
-                wetag.showNoRecogItemDialog();
+                wetag.showNoRecogItemDialog("Cannot recognize any " + (wetag.tagOption == TagOption.Celebrity ? "celebrities" : "landmarks"));
+                wetag.WeTagCanvas.transform.Find("InfoTitle").gameObject.SetActive(false);
             }else{
 	            foreach (RecogItem item in array)
 	            {
