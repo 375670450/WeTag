@@ -1504,8 +1504,9 @@ extern Il2CppClass* RecogFinishDelegate_t2824035069_il2cpp_TypeInfo_var;
 extern const MethodInfo* UDTEventHandler_OnRecognizeFinish_m2539271533_MethodInfo_var;
 extern Il2CppCodeGenString* _stringLiteral3217882994;
 extern Il2CppCodeGenString* _stringLiteral1895017224;
+extern Il2CppCodeGenString* _stringLiteral1839007796;
+extern Il2CppCodeGenString* _stringLiteral3055461780;
 extern const uint32_t UDTEventHandler_BuildNewTarget_m1429810889_MetadataUsageId;
-extern const uint32_t UDTEventHandler_CloseQualityDialog_m3110258329_MetadataUsageId;
 extern const MethodInfo* Dictionary_2_GetEnumerator_m2895728349_MethodInfo_var;
 extern const MethodInfo* Enumerator_get_Current_m1989408781_MethodInfo_var;
 extern const MethodInfo* KeyValuePair_2_get_Key_m1372024679_MethodInfo_var;
@@ -1519,6 +1520,10 @@ extern const uint32_t UDTEventHandler_clearTags_m1845087754_MetadataUsageId;
 extern Il2CppClass* Dictionary_2_t1042281249_il2cpp_TypeInfo_var;
 extern const MethodInfo* Dictionary_2__ctor_m736772499_MethodInfo_var;
 extern const MethodInfo* Dictionary_2_set_Item_m3398502320_MethodInfo_var;
+extern Il2CppCodeGenString* _stringLiteral1387695011;
+extern Il2CppCodeGenString* _stringLiteral2529086169;
+extern Il2CppCodeGenString* _stringLiteral674741053;
+extern Il2CppCodeGenString* _stringLiteral2792113374;
 extern const uint32_t UDTEventHandler_OnRecognizeFinish_m2539271533_MetadataUsageId;
 extern Il2CppCodeGenString* _stringLiteral1367485536;
 extern const uint32_t UDTEventHandler_onTapTag_m2708464536_MetadataUsageId;
@@ -3687,18 +3692,26 @@ extern "C"  void UDTEventHandler_StopExtendedTracking_m1259032648 (UDTEventHandl
 extern "C"  void UserDefinedTargetBuildingAbstractBehaviour_StartScanning_m2698452449 (UserDefinedTargetBuildingAbstractBehaviour_t3589690572 * __this, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 // System.Void UDTEventHandler::clearTags()
 extern "C"  void UDTEventHandler_clearTags_m1845087754 (UDTEventHandler_t3117429239 * __this, const MethodInfo* method) IL2CPP_METHOD_ATTR;
-// System.Void WeTagHandler/RecogFinishDelegate::.ctor(System.Object,System.IntPtr)
-extern "C"  void RecogFinishDelegate__ctor_m2348988354 (RecogFinishDelegate_t2824035069 * __this, Il2CppObject * ___object0, IntPtr_t ___method1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
-// System.Collections.IEnumerator WeTagHandler::RecognizeObject(WeTagHandler/RecogFinishDelegate)
-extern "C"  Il2CppObject * WeTagHandler_RecognizeObject_m978292483 (WeTagHandler_t1469443048 * __this, RecogFinishDelegate_t2824035069 * ___callback0, const MethodInfo* method) IL2CPP_METHOD_ATTR;
-// UnityEngine.Coroutine UnityEngine.MonoBehaviour::StartCoroutine(System.Collections.IEnumerator)
-extern "C"  Coroutine_t2299508840 * MonoBehaviour_StartCoroutine_m2470621050 (MonoBehaviour_t1158329972 * __this, Il2CppObject * p0, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 // System.String System.String::Format(System.String,System.Object,System.Object)
 extern "C"  String_t* String_Format_m1811873526 (Il2CppObject * __this /* static, unused */, String_t* p0, Il2CppObject * p1, Il2CppObject * p2, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 // UnityEngine.Vector2 Vuforia.ImageTargetAbstractBehaviour::GetSize()
 extern "C"  Vector2_t2243707579  ImageTargetAbstractBehaviour_GetSize_m4105784097 (ImageTargetAbstractBehaviour_t3327552701 * __this, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 // System.Void Vuforia.UserDefinedTargetBuildingAbstractBehaviour::BuildNewTarget(System.String,System.Single)
 extern "C"  void UserDefinedTargetBuildingAbstractBehaviour_BuildNewTarget_m3831119264 (UserDefinedTargetBuildingAbstractBehaviour_t3589690572 * __this, String_t* p0, float p1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+// System.Boolean WeTagHandler::get_isRecognizing()
+extern "C"  bool WeTagHandler_get_isRecognizing_m2611486781 (WeTagHandler_t1469443048 * __this, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+// System.Void WeTagHandler::set_isRecognizing(System.Boolean)
+extern "C"  void WeTagHandler_set_isRecognizing_m2973985690 (WeTagHandler_t1469443048 * __this, bool ___value0, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+// System.Void WeTagHandler/RecogFinishDelegate::.ctor(System.Object,System.IntPtr)
+extern "C"  void RecogFinishDelegate__ctor_m2348988354 (RecogFinishDelegate_t2824035069 * __this, Il2CppObject * ___object0, IntPtr_t ___method1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+// System.Collections.IEnumerator WeTagHandler::RecognizeObject(WeTagHandler/RecogFinishDelegate)
+extern "C"  Il2CppObject * WeTagHandler_RecognizeObject_m978292483 (WeTagHandler_t1469443048 * __this, RecogFinishDelegate_t2824035069 * ___callback0, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+// UnityEngine.Coroutine UnityEngine.MonoBehaviour::StartCoroutine(System.Collections.IEnumerator)
+extern "C"  Coroutine_t2299508840 * MonoBehaviour_StartCoroutine_m2470621050 (MonoBehaviour_t1158329972 * __this, Il2CppObject * p0, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+// System.Void WeTagHandler::showNoRecogItemDialog(System.String,System.String)
+extern "C"  void WeTagHandler_showNoRecogItemDialog_m2732423684 (WeTagHandler_t1469443048 * __this, String_t* ___message0, String_t* ___title1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+// UnityEngine.Transform UnityEngine.Transform::Find(System.String)
+extern "C"  Transform_t3275118058 * Transform_Find_m3323476454 (Transform_t3275118058 * __this, String_t* p0, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 // System.Collections.Generic.Dictionary`2/Enumerator<!0,!1> System.Collections.Generic.Dictionary`2<System.String,System.String>::GetEnumerator()
 #define Dictionary_2_GetEnumerator_m2895728349(__this, method) ((  Enumerator_t969056901  (*) (Dictionary_2_t3943999495 *, const MethodInfo*))Dictionary_2_GetEnumerator_m3077639147_gshared)(__this, method)
 // System.Collections.Generic.KeyValuePair`2<!0,!1> System.Collections.Generic.Dictionary`2/Enumerator<System.String,System.String>::get_Current()
@@ -3719,8 +3732,6 @@ extern "C"  void WeTagHandler_set_isDetailShown_m1466067555 (WeTagHandler_t14694
 extern "C"  int32_t WeTagHandler_get_tagOption_m1515452717 (WeTagHandler_t1469443048 * __this, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 // System.Void System.Collections.Generic.Dictionary`2<System.String,RecogItem>::.ctor()
 #define Dictionary_2__ctor_m736772499(__this, method) ((  void (*) (Dictionary_2_t1042281249 *, const MethodInfo*))Dictionary_2__ctor_m584589095_gshared)(__this, method)
-// System.Void WeTagHandler::showNoRecogItemDialog()
-extern "C"  void WeTagHandler_showNoRecogItemDialog_m1380461182 (WeTagHandler_t1469443048 * __this, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 // System.Void System.Collections.Generic.Dictionary`2<System.String,RecogItem>::set_Item(!0,!1)
 #define Dictionary_2_set_Item_m3398502320(__this, p0, p1, method) ((  void (*) (Dictionary_2_t1042281249 *, String_t*, RecogItem_t3422469283 *, const MethodInfo*))Dictionary_2_set_Item_m1004257024_gshared)(__this, p0, p1, method)
 // System.Void UDTEventHandler::updateTags(System.Collections.Generic.Dictionary`2<System.String,RecogItem>)
@@ -3769,8 +3780,6 @@ extern "C"  void TextMesh_set_text_m3390063817 (TextMesh_t1641806576 * __this, S
 extern "C"  Vector3_t2243707580  Vector3_op_Division_m3315615850 (Il2CppObject * __this /* static, unused */, Vector3_t2243707580  p0, float p1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 // UnityEngine.GameObject UnityEngine.GameObject::get_gameObject()
 extern "C"  GameObject_t1756533147 * GameObject_get_gameObject_m3662236595 (GameObject_t1756533147 * __this, const MethodInfo* method) IL2CPP_METHOD_ATTR;
-// UnityEngine.Transform UnityEngine.Transform::Find(System.String)
-extern "C"  Transform_t3275118058 * Transform_Find_m3323476454 (Transform_t3275118058 * __this, String_t* p0, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 // UnityEngine.Vector3 UnityEngine.Vector3::op_Addition(UnityEngine.Vector3,UnityEngine.Vector3)
 extern "C"  Vector3_t2243707580  Vector3_op_Addition_m3146764857 (Il2CppObject * __this /* static, unused */, Vector3_t2243707580  p0, Vector3_t2243707580  p1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
 // System.Void System.Collections.Generic.Dictionary`2<System.String,System.String>::set_Item(!0,!1)
@@ -19664,7 +19673,7 @@ extern "C"  void UDTEventHandler__ctor_m2746739334 (UDTEventHandler_t3117429239 
 		Dictionary_2_t3943999495 * L_0 = (Dictionary_2_t3943999495 *)il2cpp_codegen_object_new(Dictionary_2_t3943999495_il2cpp_TypeInfo_var);
 		Dictionary_2__ctor_m760167321(L_0, /*hidden argument*/Dictionary_2__ctor_m760167321_MethodInfo_var);
 		__this->set_celebrityTags_4(L_0);
-		__this->set_mFrameQuality_13((-1));
+		__this->set_mFrameQuality_12((-1));
 		MonoBehaviour__ctor_m2464341955(__this, /*hidden argument*/NULL);
 		return;
 	}
@@ -19673,7 +19682,7 @@ extern "C"  void UDTEventHandler__ctor_m2746739334 (UDTEventHandler_t3117429239 
 extern "C"  int32_t UDTEventHandler_get_LastTargetIndex_m730969020 (UDTEventHandler_t3117429239 * __this, const MethodInfo* method)
 {
 	{
-		int32_t L_0 = __this->get_mTargetCounter_14();
+		int32_t L_0 = __this->get_mTargetCounter_13();
 		return ((int32_t)((int32_t)((int32_t)((int32_t)L_0-(int32_t)1))%(int32_t)5));
 	}
 }
@@ -19688,12 +19697,12 @@ extern "C"  void UDTEventHandler_Start_m1884959570 (UDTEventHandler_t3117429239 
 	}
 	{
 		GameObject_t1756533147 * L_0 = GameObject_FindWithTag_m1929006324(NULL /*static, unused*/, _stringLiteral2559592612, /*hidden argument*/NULL);
-		__this->set_tagPlane_6(L_0);
+		__this->set_tagPlane_5(L_0);
 		WeTagHandler_t1469443048 * L_1 = Component_GetComponent_TisWeTagHandler_t1469443048_m1029628655(__this, /*hidden argument*/Component_GetComponent_TisWeTagHandler_t1469443048_m1029628655_MethodInfo_var);
 		__this->set_wetag_3(L_1);
 		UserDefinedTargetBuildingBehaviour_t4184040062 * L_2 = Component_GetComponent_TisUserDefinedTargetBuildingBehaviour_t4184040062_m3864513759(__this, /*hidden argument*/Component_GetComponent_TisUserDefinedTargetBuildingBehaviour_t4184040062_m3864513759_MethodInfo_var);
-		__this->set_mTargetBuildingBehaviour_8(L_2);
-		UserDefinedTargetBuildingBehaviour_t4184040062 * L_3 = __this->get_mTargetBuildingBehaviour_8();
+		__this->set_mTargetBuildingBehaviour_7(L_2);
+		UserDefinedTargetBuildingBehaviour_t4184040062 * L_3 = __this->get_mTargetBuildingBehaviour_7();
 		IL2CPP_RUNTIME_CLASS_INIT(Object_t1021602117_il2cpp_TypeInfo_var);
 		bool L_4 = Object_op_Implicit_m2856731593(NULL /*static, unused*/, L_3, /*hidden argument*/NULL);
 		if (!L_4)
@@ -19702,7 +19711,7 @@ extern "C"  void UDTEventHandler_Start_m1884959570 (UDTEventHandler_t3117429239 
 		}
 	}
 	{
-		UserDefinedTargetBuildingBehaviour_t4184040062 * L_5 = __this->get_mTargetBuildingBehaviour_8();
+		UserDefinedTargetBuildingBehaviour_t4184040062 * L_5 = __this->get_mTargetBuildingBehaviour_7();
 		NullCheck(L_5);
 		UserDefinedTargetBuildingAbstractBehaviour_RegisterEventHandler_m3014125139(L_5, __this, /*hidden argument*/NULL);
 		IL2CPP_RUNTIME_CLASS_INIT(Debug_t1368543263_il2cpp_TypeInfo_var);
@@ -19713,10 +19722,10 @@ IL_004e:
 	{
 		IL2CPP_RUNTIME_CLASS_INIT(Object_t1021602117_il2cpp_TypeInfo_var);
 		TrackableSettings_t4265251850 * L_6 = Object_FindObjectOfType_TisTrackableSettings_t4265251850_m956870393(NULL /*static, unused*/, /*hidden argument*/Object_FindObjectOfType_TisTrackableSettings_t4265251850_m956870393_MethodInfo_var);
-		__this->set_mTrackableSettings_15(L_6);
+		__this->set_mTrackableSettings_14(L_6);
 		QualityDialog_t1435260315 * L_7 = Object_FindObjectOfType_TisQualityDialog_t1435260315_m2875753388(NULL /*static, unused*/, /*hidden argument*/Object_FindObjectOfType_TisQualityDialog_t1435260315_m2875753388_MethodInfo_var);
-		__this->set_mQualityDialog_9(L_7);
-		QualityDialog_t1435260315 * L_8 = __this->get_mQualityDialog_9();
+		__this->set_mQualityDialog_8(L_7);
+		QualityDialog_t1435260315 * L_8 = __this->get_mQualityDialog_8();
 		bool L_9 = Object_op_Implicit_m2856731593(NULL /*static, unused*/, L_8, /*hidden argument*/NULL);
 		if (!L_9)
 		{
@@ -19724,7 +19733,7 @@ IL_004e:
 		}
 	}
 	{
-		QualityDialog_t1435260315 * L_10 = __this->get_mQualityDialog_9();
+		QualityDialog_t1435260315 * L_10 = __this->get_mQualityDialog_8();
 		NullCheck(L_10);
 		GameObject_t1756533147 * L_11 = Component_get_gameObject_m3105766835(L_10, /*hidden argument*/NULL);
 		NullCheck(L_11);
@@ -19758,20 +19767,20 @@ extern "C"  void UDTEventHandler_OnInitialized_m478469647 (UDTEventHandler_t3117
 		TrackerManager_t308318605 * L_0 = TrackerManager_get_Instance_m2067083115(NULL /*static, unused*/, /*hidden argument*/NULL);
 		NullCheck(L_0);
 		ObjectTracker_t1568044035 * L_1 = GenericVirtFuncInvoker0< ObjectTracker_t1568044035 * >::Invoke(TrackerManager_GetTracker_TisObjectTracker_t1568044035_m2837640701_MethodInfo_var, L_0);
-		__this->set_mObjectTracker_10(L_1);
-		ObjectTracker_t1568044035 * L_2 = __this->get_mObjectTracker_10();
+		__this->set_mObjectTracker_9(L_1);
+		ObjectTracker_t1568044035 * L_2 = __this->get_mObjectTracker_9();
 		if (!L_2)
 		{
 			goto IL_003e;
 		}
 	}
 	{
-		ObjectTracker_t1568044035 * L_3 = __this->get_mObjectTracker_10();
+		ObjectTracker_t1568044035 * L_3 = __this->get_mObjectTracker_9();
 		NullCheck(L_3);
 		DataSet_t626511550 * L_4 = VirtFuncInvoker0< DataSet_t626511550 * >::Invoke(10 /* Vuforia.DataSet Vuforia.ObjectTracker::CreateDataSet() */, L_3);
-		__this->set_mBuiltDataSet_12(L_4);
-		ObjectTracker_t1568044035 * L_5 = __this->get_mObjectTracker_10();
-		DataSet_t626511550 * L_6 = __this->get_mBuiltDataSet_12();
+		__this->set_mBuiltDataSet_11(L_4);
+		ObjectTracker_t1568044035 * L_5 = __this->get_mObjectTracker_9();
+		DataSet_t626511550 * L_6 = __this->get_mBuiltDataSet_11();
 		NullCheck(L_5);
 		VirtFuncInvoker1< bool, DataSet_t626511550 * >::Invoke(12 /* System.Boolean Vuforia.ObjectTracker::ActivateDataSet(Vuforia.DataSet) */, L_5, L_6);
 	}
@@ -19786,8 +19795,8 @@ extern "C"  void UDTEventHandler_OnFrameQualityChanged_m1046057831 (UDTEventHand
 {
 	{
 		int32_t L_0 = ___frameQuality0;
-		__this->set_mFrameQuality_13(L_0);
-		int32_t L_1 = __this->get_mFrameQuality_13();
+		__this->set_mFrameQuality_12(L_0);
+		int32_t L_1 = __this->get_mFrameQuality_12();
 		if (L_1)
 		{
 			goto IL_0012;
@@ -19820,13 +19829,13 @@ extern "C"  void UDTEventHandler_OnNewTrackableSource_m1598888161 (UDTEventHandl
 	int32_t __leave_target = 0;
 	NO_UNUSED_WARNING (__leave_target);
 	{
-		int32_t L_0 = __this->get_mTargetCounter_14();
-		__this->set_mTargetCounter_14(((int32_t)((int32_t)L_0+(int32_t)1)));
-		ObjectTracker_t1568044035 * L_1 = __this->get_mObjectTracker_10();
-		DataSet_t626511550 * L_2 = __this->get_mBuiltDataSet_12();
+		int32_t L_0 = __this->get_mTargetCounter_13();
+		__this->set_mTargetCounter_13(((int32_t)((int32_t)L_0+(int32_t)1)));
+		ObjectTracker_t1568044035 * L_1 = __this->get_mObjectTracker_9();
+		DataSet_t626511550 * L_2 = __this->get_mBuiltDataSet_11();
 		NullCheck(L_1);
 		VirtFuncInvoker1< bool, DataSet_t626511550 * >::Invoke(13 /* System.Boolean Vuforia.ObjectTracker::DeactivateDataSet(Vuforia.DataSet) */, L_1, L_2);
-		DataSet_t626511550 * L_3 = __this->get_mBuiltDataSet_12();
+		DataSet_t626511550 * L_3 = __this->get_mBuiltDataSet_11();
 		NullCheck(L_3);
 		bool L_4 = VirtFuncInvoker0< bool >::Invoke(12 /* System.Boolean Vuforia.DataSet::HasReachedTrackableLimit() */, L_3);
 		if (L_4)
@@ -19835,7 +19844,7 @@ extern "C"  void UDTEventHandler_OnNewTrackableSource_m1598888161 (UDTEventHandl
 		}
 	}
 	{
-		DataSet_t626511550 * L_5 = __this->get_mBuiltDataSet_12();
+		DataSet_t626511550 * L_5 = __this->get_mBuiltDataSet_11();
 		NullCheck(L_5);
 		Il2CppObject* L_6 = VirtFuncInvoker0< Il2CppObject* >::Invoke(8 /* System.Collections.Generic.IEnumerable`1<Vuforia.Trackable> Vuforia.DataSet::GetTrackables() */, L_5);
 		int32_t L_7 = Enumerable_Count_TisTrackable_t432275407_m374521505(NULL /*static, unused*/, L_6, /*hidden argument*/Enumerable_Count_TisTrackable_t432275407_m374521505_MethodInfo_var);
@@ -19847,7 +19856,7 @@ extern "C"  void UDTEventHandler_OnNewTrackableSource_m1598888161 (UDTEventHandl
 
 IL_0046:
 	{
-		DataSet_t626511550 * L_8 = __this->get_mBuiltDataSet_12();
+		DataSet_t626511550 * L_8 = __this->get_mBuiltDataSet_11();
 		NullCheck(L_8);
 		Il2CppObject* L_9 = VirtFuncInvoker0< Il2CppObject* >::Invoke(8 /* System.Collections.Generic.IEnumerable`1<Vuforia.Trackable> Vuforia.DataSet::GetTrackables() */, L_8);
 		V_0 = L_9;
@@ -19964,7 +19973,7 @@ IL_009d:
 		String_t* L_27 = String_Concat_m2596409543(NULL /*static, unused*/, _stringLiteral2690562318, L_26, /*hidden argument*/NULL);
 		IL2CPP_RUNTIME_CLASS_INIT(Debug_t1368543263_il2cpp_TypeInfo_var);
 		Debug_Log_m920475918(NULL /*static, unused*/, L_27, /*hidden argument*/NULL);
-		DataSet_t626511550 * L_28 = __this->get_mBuiltDataSet_12();
+		DataSet_t626511550 * L_28 = __this->get_mBuiltDataSet_11();
 		Il2CppObject * L_29 = V_1;
 		NullCheck(L_28);
 		VirtFuncInvoker2< bool, Il2CppObject *, bool >::Invoke(11 /* System.Boolean Vuforia.DataSet::Destroy(Vuforia.Trackable,System.Boolean) */, L_28, L_29, (bool)1);
@@ -19979,35 +19988,35 @@ IL_00c6:
 		ImageTargetBehaviour_t2654589389 * L_32 = V_4;
 		NullCheck(L_32);
 		GameObject_t1756533147 * L_33 = Component_get_gameObject_m3105766835(L_32, /*hidden argument*/NULL);
-		int32_t L_34 = __this->get_mTargetCounter_14();
+		int32_t L_34 = __this->get_mTargetCounter_13();
 		int32_t L_35 = L_34;
 		Il2CppObject * L_36 = Box(Int32_t2071877448_il2cpp_TypeInfo_var, &L_35);
 		IL2CPP_RUNTIME_CLASS_INIT(String_t_il2cpp_TypeInfo_var);
 		String_t* L_37 = String_Concat_m56707527(NULL /*static, unused*/, _stringLiteral879242782, L_36, /*hidden argument*/NULL);
 		NullCheck(L_33);
 		Object_set_name_m4157836998(L_33, L_37, /*hidden argument*/NULL);
-		DataSet_t626511550 * L_38 = __this->get_mBuiltDataSet_12();
+		DataSet_t626511550 * L_38 = __this->get_mBuiltDataSet_11();
 		TrackableSource_t2832298792 * L_39 = ___trackableSource0;
 		ImageTargetBehaviour_t2654589389 * L_40 = V_4;
 		NullCheck(L_40);
 		GameObject_t1756533147 * L_41 = Component_get_gameObject_m3105766835(L_40, /*hidden argument*/NULL);
 		NullCheck(L_38);
 		VirtFuncInvoker2< DataSetTrackableBehaviour_t3452781876 *, TrackableSource_t2832298792 *, GameObject_t1756533147 * >::Invoke(10 /* Vuforia.DataSetTrackableBehaviour Vuforia.DataSet::CreateTrackable(Vuforia.TrackableSource,UnityEngine.GameObject) */, L_38, L_39, L_41);
-		ObjectTracker_t1568044035 * L_42 = __this->get_mObjectTracker_10();
-		DataSet_t626511550 * L_43 = __this->get_mBuiltDataSet_12();
+		ObjectTracker_t1568044035 * L_42 = __this->get_mObjectTracker_9();
+		DataSet_t626511550 * L_43 = __this->get_mBuiltDataSet_11();
 		NullCheck(L_42);
 		VirtFuncInvoker1< bool, DataSet_t626511550 * >::Invoke(12 /* System.Boolean Vuforia.ObjectTracker::ActivateDataSet(Vuforia.DataSet) */, L_42, L_43);
 		UDTEventHandler_StopExtendedTracking_m1259032648(__this, /*hidden argument*/NULL);
-		ObjectTracker_t1568044035 * L_44 = __this->get_mObjectTracker_10();
+		ObjectTracker_t1568044035 * L_44 = __this->get_mObjectTracker_9();
 		NullCheck(L_44);
 		VirtActionInvoker0::Invoke(5 /* System.Void Vuforia.Tracker::Stop() */, L_44);
-		ObjectTracker_t1568044035 * L_45 = __this->get_mObjectTracker_10();
+		ObjectTracker_t1568044035 * L_45 = __this->get_mObjectTracker_9();
 		NullCheck(L_45);
 		VirtFuncInvoker0< bool >::Invoke(18 /* System.Boolean Vuforia.ObjectTracker::ResetExtendedTracking() */, L_45);
-		ObjectTracker_t1568044035 * L_46 = __this->get_mObjectTracker_10();
+		ObjectTracker_t1568044035 * L_46 = __this->get_mObjectTracker_9();
 		NullCheck(L_46);
 		VirtFuncInvoker0< bool >::Invoke(4 /* System.Boolean Vuforia.Tracker::Start() */, L_46);
-		UserDefinedTargetBuildingBehaviour_t4184040062 * L_47 = __this->get_mTargetBuildingBehaviour_8();
+		UserDefinedTargetBuildingBehaviour_t4184040062 * L_47 = __this->get_mTargetBuildingBehaviour_7();
 		NullCheck(L_47);
 		UserDefinedTargetBuildingAbstractBehaviour_StartScanning_m2698452449(L_47, /*hidden argument*/NULL);
 		return;
@@ -20027,85 +20036,89 @@ extern "C"  void UDTEventHandler_BuildNewTarget_m1429810889 (UDTEventHandler_t31
 	memset(&V_1, 0, sizeof(V_1));
 	{
 		UDTEventHandler_clearTags_m1845087754(__this, /*hidden argument*/NULL);
-		bool L_0 = __this->get_isRecognizing_5();
-		if (!L_0)
+		int32_t L_0 = __this->get_mFrameQuality_12();
+		if ((((int32_t)L_0) == ((int32_t)1)))
 		{
-			goto IL_0012;
+			goto IL_001e;
+		}
+	}
+	{
+		int32_t L_1 = __this->get_mFrameQuality_12();
+		if ((!(((uint32_t)L_1) == ((uint32_t)2))))
+		{
+			goto IL_009e;
+		}
+	}
+
+IL_001e:
+	{
+		ImageTargetBehaviour_t2654589389 * L_2 = __this->get_ImageTargetTemplate_2();
+		NullCheck(L_2);
+		String_t* L_3 = TrackableBehaviour_get_TrackableName_m3173853042(L_2, /*hidden argument*/NULL);
+		int32_t L_4 = __this->get_mTargetCounter_13();
+		int32_t L_5 = L_4;
+		Il2CppObject * L_6 = Box(Int32_t2071877448_il2cpp_TypeInfo_var, &L_5);
+		IL2CPP_RUNTIME_CLASS_INIT(String_t_il2cpp_TypeInfo_var);
+		String_t* L_7 = String_Format_m1811873526(NULL /*static, unused*/, _stringLiteral3217882994, L_3, L_6, /*hidden argument*/NULL);
+		V_0 = L_7;
+		UserDefinedTargetBuildingBehaviour_t4184040062 * L_8 = __this->get_mTargetBuildingBehaviour_7();
+		String_t* L_9 = V_0;
+		ImageTargetBehaviour_t2654589389 * L_10 = __this->get_ImageTargetTemplate_2();
+		NullCheck(L_10);
+		Vector2_t2243707579  L_11 = ImageTargetAbstractBehaviour_GetSize_m4105784097(L_10, /*hidden argument*/NULL);
+		V_1 = L_11;
+		float L_12 = (&V_1)->get_x_0();
+		NullCheck(L_8);
+		UserDefinedTargetBuildingAbstractBehaviour_BuildNewTarget_m3831119264(L_8, L_9, L_12, /*hidden argument*/NULL);
+		WeTagHandler_t1469443048 * L_13 = __this->get_wetag_3();
+		NullCheck(L_13);
+		bool L_14 = WeTagHandler_get_isRecognizing_m2611486781(L_13, /*hidden argument*/NULL);
+		if (!L_14)
+		{
+			goto IL_006f;
 		}
 	}
 	{
 		return;
 	}
 
-IL_0012:
+IL_006f:
 	{
-		__this->set_isRecognizing_5((bool)1);
-		WeTagHandler_t1469443048 * L_1 = __this->get_wetag_3();
-		IntPtr_t L_2;
-		L_2.set_m_value_0((void*)(void*)UDTEventHandler_OnRecognizeFinish_m2539271533_MethodInfo_var);
-		RecogFinishDelegate_t2824035069 * L_3 = (RecogFinishDelegate_t2824035069 *)il2cpp_codegen_object_new(RecogFinishDelegate_t2824035069_il2cpp_TypeInfo_var);
-		RecogFinishDelegate__ctor_m2348988354(L_3, __this, L_2, /*hidden argument*/NULL);
-		NullCheck(L_1);
-		Il2CppObject * L_4 = WeTagHandler_RecognizeObject_m978292483(L_1, L_3, /*hidden argument*/NULL);
-		MonoBehaviour_StartCoroutine_m2470621050(__this, L_4, /*hidden argument*/NULL);
-		int32_t L_5 = __this->get_mFrameQuality_13();
-		if ((((int32_t)L_5) == ((int32_t)1)))
-		{
-			goto IL_004f;
-		}
-	}
-	{
-		int32_t L_6 = __this->get_mFrameQuality_13();
-		if ((!(((uint32_t)L_6) == ((uint32_t)2))))
-		{
-			goto IL_0094;
-		}
-	}
-
-IL_004f:
-	{
-		ImageTargetBehaviour_t2654589389 * L_7 = __this->get_ImageTargetTemplate_2();
-		NullCheck(L_7);
-		String_t* L_8 = TrackableBehaviour_get_TrackableName_m3173853042(L_7, /*hidden argument*/NULL);
-		int32_t L_9 = __this->get_mTargetCounter_14();
-		int32_t L_10 = L_9;
-		Il2CppObject * L_11 = Box(Int32_t2071877448_il2cpp_TypeInfo_var, &L_10);
-		IL2CPP_RUNTIME_CLASS_INIT(String_t_il2cpp_TypeInfo_var);
-		String_t* L_12 = String_Format_m1811873526(NULL /*static, unused*/, _stringLiteral3217882994, L_8, L_11, /*hidden argument*/NULL);
-		V_0 = L_12;
-		UserDefinedTargetBuildingBehaviour_t4184040062 * L_13 = __this->get_mTargetBuildingBehaviour_8();
-		String_t* L_14 = V_0;
-		ImageTargetBehaviour_t2654589389 * L_15 = __this->get_ImageTargetTemplate_2();
+		WeTagHandler_t1469443048 * L_15 = __this->get_wetag_3();
 		NullCheck(L_15);
-		Vector2_t2243707579  L_16 = ImageTargetAbstractBehaviour_GetSize_m4105784097(L_15, /*hidden argument*/NULL);
-		V_1 = L_16;
-		float L_17 = (&V_1)->get_x_0();
-		NullCheck(L_13);
-		UserDefinedTargetBuildingAbstractBehaviour_BuildNewTarget_m3831119264(L_13, L_14, L_17, /*hidden argument*/NULL);
-		goto IL_00bf;
+		WeTagHandler_set_isRecognizing_m2973985690(L_15, (bool)1, /*hidden argument*/NULL);
+		WeTagHandler_t1469443048 * L_16 = __this->get_wetag_3();
+		IntPtr_t L_17;
+		L_17.set_m_value_0((void*)(void*)UDTEventHandler_OnRecognizeFinish_m2539271533_MethodInfo_var);
+		RecogFinishDelegate_t2824035069 * L_18 = (RecogFinishDelegate_t2824035069 *)il2cpp_codegen_object_new(RecogFinishDelegate_t2824035069_il2cpp_TypeInfo_var);
+		RecogFinishDelegate__ctor_m2348988354(L_18, __this, L_17, /*hidden argument*/NULL);
+		NullCheck(L_16);
+		Il2CppObject * L_19 = WeTagHandler_RecognizeObject_m978292483(L_16, L_18, /*hidden argument*/NULL);
+		MonoBehaviour_StartCoroutine_m2470621050(__this, L_19, /*hidden argument*/NULL);
+		goto IL_00e2;
 	}
 
-IL_0094:
+IL_009e:
 	{
 		IL2CPP_RUNTIME_CLASS_INIT(Debug_t1368543263_il2cpp_TypeInfo_var);
 		Debug_Log_m920475918(NULL /*static, unused*/, _stringLiteral1895017224, /*hidden argument*/NULL);
-		QualityDialog_t1435260315 * L_18 = __this->get_mQualityDialog_9();
-		IL2CPP_RUNTIME_CLASS_INIT(Object_t1021602117_il2cpp_TypeInfo_var);
-		bool L_19 = Object_op_Implicit_m2856731593(NULL /*static, unused*/, L_18, /*hidden argument*/NULL);
-		if (!L_19)
-		{
-			goto IL_00bf;
-		}
-	}
-	{
-		QualityDialog_t1435260315 * L_20 = __this->get_mQualityDialog_9();
+		WeTagHandler_t1469443048 * L_20 = __this->get_wetag_3();
 		NullCheck(L_20);
-		GameObject_t1756533147 * L_21 = Component_get_gameObject_m3105766835(L_20, /*hidden argument*/NULL);
+		WeTagHandler_showNoRecogItemDialog_m2732423684(L_20, _stringLiteral1895017224, _stringLiteral1839007796, /*hidden argument*/NULL);
+		WeTagHandler_t1469443048 * L_21 = __this->get_wetag_3();
 		NullCheck(L_21);
-		GameObject_SetActive_m2887581199(L_21, (bool)1, /*hidden argument*/NULL);
+		GameObject_t1756533147 * L_22 = L_21->get_WeTagCanvas_5();
+		NullCheck(L_22);
+		Transform_t3275118058 * L_23 = GameObject_get_transform_m909382139(L_22, /*hidden argument*/NULL);
+		NullCheck(L_23);
+		Transform_t3275118058 * L_24 = Transform_Find_m3323476454(L_23, _stringLiteral3055461780, /*hidden argument*/NULL);
+		NullCheck(L_24);
+		GameObject_t1756533147 * L_25 = Component_get_gameObject_m3105766835(L_24, /*hidden argument*/NULL);
+		NullCheck(L_25);
+		GameObject_SetActive_m2887581199(L_25, (bool)0, /*hidden argument*/NULL);
 	}
 
-IL_00bf:
+IL_00e2:
 	{
 		return;
 	}
@@ -20113,30 +20126,6 @@ IL_00bf:
 // System.Void UDTEventHandler::CloseQualityDialog()
 extern "C"  void UDTEventHandler_CloseQualityDialog_m3110258329 (UDTEventHandler_t3117429239 * __this, const MethodInfo* method)
 {
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (UDTEventHandler_CloseQualityDialog_m3110258329_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		QualityDialog_t1435260315 * L_0 = __this->get_mQualityDialog_9();
-		IL2CPP_RUNTIME_CLASS_INIT(Object_t1021602117_il2cpp_TypeInfo_var);
-		bool L_1 = Object_op_Implicit_m2856731593(NULL /*static, unused*/, L_0, /*hidden argument*/NULL);
-		if (!L_1)
-		{
-			goto IL_0021;
-		}
-	}
-	{
-		QualityDialog_t1435260315 * L_2 = __this->get_mQualityDialog_9();
-		NullCheck(L_2);
-		GameObject_t1756533147 * L_3 = Component_get_gameObject_m3105766835(L_2, /*hidden argument*/NULL);
-		NullCheck(L_3);
-		GameObject_SetActive_m2887581199(L_3, (bool)0, /*hidden argument*/NULL);
-	}
-
-IL_0021:
 	{
 		return;
 	}
@@ -20248,11 +20237,18 @@ extern "C"  void UDTEventHandler_OnRecognizeFinish_m2539271533 (UDTEventHandler_
 	RecogItemU5BU5D_t3245901170* V_3 = NULL;
 	int32_t V_4 = 0;
 	RecogItemU5BU5D_t3245901170* G_B4_0 = NULL;
+	String_t* G_B7_0 = NULL;
+	WeTagHandler_t1469443048 * G_B7_1 = NULL;
+	String_t* G_B6_0 = NULL;
+	WeTagHandler_t1469443048 * G_B6_1 = NULL;
+	String_t* G_B8_0 = NULL;
+	String_t* G_B8_1 = NULL;
+	WeTagHandler_t1469443048 * G_B8_2 = NULL;
 	{
 		Result_t896113815 * L_0 = ___res0;
 		if (!L_0)
 		{
-			goto IL_0080;
+			goto IL_00d8;
 		}
 	}
 	{
@@ -20290,64 +20286,107 @@ IL_0027:
 		NullCheck(L_8);
 		if ((((int32_t)((int32_t)(((Il2CppArray *)L_8)->max_length)))))
 		{
-			goto IL_0046;
+			goto IL_0099;
 		}
 	}
 	{
 		WeTagHandler_t1469443048 * L_9 = __this->get_wetag_3();
-		NullCheck(L_9);
-		WeTagHandler_showNoRecogItemDialog_m1380461182(L_9, /*hidden argument*/NULL);
-		goto IL_0079;
-	}
-
-IL_0046:
-	{
-		RecogItemU5BU5D_t3245901170* L_10 = V_0;
-		V_3 = L_10;
-		V_4 = 0;
-		goto IL_0068;
-	}
-
-IL_0050:
-	{
-		RecogItemU5BU5D_t3245901170* L_11 = V_3;
-		int32_t L_12 = V_4;
-		NullCheck(L_11);
-		int32_t L_13 = L_12;
-		RecogItem_t3422469283 * L_14 = (L_11)->GetAt(static_cast<il2cpp_array_size_t>(L_13));
-		V_2 = L_14;
-		Dictionary_2_t1042281249 * L_15 = V_1;
-		RecogItem_t3422469283 * L_16 = V_2;
-		NullCheck(L_16);
-		String_t* L_17 = L_16->get_name_0();
-		RecogItem_t3422469283 * L_18 = V_2;
-		NullCheck(L_15);
-		Dictionary_2_set_Item_m3398502320(L_15, L_17, L_18, /*hidden argument*/Dictionary_2_set_Item_m3398502320_MethodInfo_var);
-		int32_t L_19 = V_4;
-		V_4 = ((int32_t)((int32_t)L_19+(int32_t)1));
-	}
-
-IL_0068:
-	{
-		int32_t L_20 = V_4;
-		RecogItemU5BU5D_t3245901170* L_21 = V_3;
-		NullCheck(L_21);
-		if ((((int32_t)L_20) < ((int32_t)(((int32_t)((int32_t)(((Il2CppArray *)L_21)->max_length)))))))
+		WeTagHandler_t1469443048 * L_10 = __this->get_wetag_3();
+		NullCheck(L_10);
+		int32_t L_11 = WeTagHandler_get_tagOption_m1515452717(L_10, /*hidden argument*/NULL);
+		G_B6_0 = _stringLiteral1387695011;
+		G_B6_1 = L_9;
+		if (L_11)
 		{
-			goto IL_0050;
+			G_B7_0 = _stringLiteral1387695011;
+			G_B7_1 = L_9;
+			goto IL_005b;
 		}
 	}
 	{
-		Dictionary_2_t1042281249 * L_22 = V_1;
-		UDTEventHandler_updateTags_m1474870894(__this, L_22, /*hidden argument*/NULL);
+		G_B8_0 = _stringLiteral2529086169;
+		G_B8_1 = G_B6_0;
+		G_B8_2 = G_B6_1;
+		goto IL_0060;
 	}
 
-IL_0079:
+IL_005b:
 	{
-		__this->set_isRecognizing_5((bool)0);
+		G_B8_0 = _stringLiteral674741053;
+		G_B8_1 = G_B7_0;
+		G_B8_2 = G_B7_1;
 	}
 
-IL_0080:
+IL_0060:
+	{
+		IL2CPP_RUNTIME_CLASS_INIT(String_t_il2cpp_TypeInfo_var);
+		String_t* L_12 = String_Concat_m2596409543(NULL /*static, unused*/, G_B8_1, G_B8_0, /*hidden argument*/NULL);
+		NullCheck(G_B8_2);
+		WeTagHandler_showNoRecogItemDialog_m2732423684(G_B8_2, L_12, _stringLiteral2792113374, /*hidden argument*/NULL);
+		WeTagHandler_t1469443048 * L_13 = __this->get_wetag_3();
+		NullCheck(L_13);
+		GameObject_t1756533147 * L_14 = L_13->get_WeTagCanvas_5();
+		NullCheck(L_14);
+		Transform_t3275118058 * L_15 = GameObject_get_transform_m909382139(L_14, /*hidden argument*/NULL);
+		NullCheck(L_15);
+		Transform_t3275118058 * L_16 = Transform_Find_m3323476454(L_15, _stringLiteral3055461780, /*hidden argument*/NULL);
+		NullCheck(L_16);
+		GameObject_t1756533147 * L_17 = Component_get_gameObject_m3105766835(L_16, /*hidden argument*/NULL);
+		NullCheck(L_17);
+		GameObject_SetActive_m2887581199(L_17, (bool)0, /*hidden argument*/NULL);
+		goto IL_00cc;
+	}
+
+IL_0099:
+	{
+		RecogItemU5BU5D_t3245901170* L_18 = V_0;
+		V_3 = L_18;
+		V_4 = 0;
+		goto IL_00bb;
+	}
+
+IL_00a3:
+	{
+		RecogItemU5BU5D_t3245901170* L_19 = V_3;
+		int32_t L_20 = V_4;
+		NullCheck(L_19);
+		int32_t L_21 = L_20;
+		RecogItem_t3422469283 * L_22 = (L_19)->GetAt(static_cast<il2cpp_array_size_t>(L_21));
+		V_2 = L_22;
+		Dictionary_2_t1042281249 * L_23 = V_1;
+		RecogItem_t3422469283 * L_24 = V_2;
+		NullCheck(L_24);
+		String_t* L_25 = L_24->get_name_0();
+		RecogItem_t3422469283 * L_26 = V_2;
+		NullCheck(L_23);
+		Dictionary_2_set_Item_m3398502320(L_23, L_25, L_26, /*hidden argument*/Dictionary_2_set_Item_m3398502320_MethodInfo_var);
+		int32_t L_27 = V_4;
+		V_4 = ((int32_t)((int32_t)L_27+(int32_t)1));
+	}
+
+IL_00bb:
+	{
+		int32_t L_28 = V_4;
+		RecogItemU5BU5D_t3245901170* L_29 = V_3;
+		NullCheck(L_29);
+		if ((((int32_t)L_28) < ((int32_t)(((int32_t)((int32_t)(((Il2CppArray *)L_29)->max_length)))))))
+		{
+			goto IL_00a3;
+		}
+	}
+	{
+		Dictionary_2_t1042281249 * L_30 = V_1;
+		UDTEventHandler_updateTags_m1474870894(__this, L_30, /*hidden argument*/NULL);
+	}
+
+IL_00cc:
+	{
+		WeTagHandler_t1469443048 * L_31 = __this->get_wetag_3();
+		NullCheck(L_31);
+		WeTagHandler_set_isRecognizing_m2973985690(L_31, (bool)0, /*hidden argument*/NULL);
+	}
+
+IL_00d8:
 	{
 		return;
 	}
@@ -20423,7 +20462,7 @@ IL_0019:
 		String_t* L_12 = String_Concat_m2596409543(NULL /*static, unused*/, _stringLiteral450470352, L_11, /*hidden argument*/NULL);
 		IL2CPP_RUNTIME_CLASS_INIT(Debug_t1368543263_il2cpp_TypeInfo_var);
 		Debug_Log_m920475918(NULL /*static, unused*/, L_12, /*hidden argument*/NULL);
-		__this->set_mFormatRegistered_11((bool)1);
+		__this->set_mFormatRegistered_10((bool)1);
 		int32_t L_13 = V_1;
 		IL2CPP_RUNTIME_CLASS_INIT(WeTagHandler_t1469443048_il2cpp_TypeInfo_var);
 		((WeTagHandler_t1469443048_StaticFields*)WeTagHandler_t1469443048_il2cpp_TypeInfo_var->static_fields)->set_mPixelFormat_4(L_13);
@@ -20439,7 +20478,7 @@ IL_0058:
 		String_t* L_16 = String_Concat_m612901809(NULL /*static, unused*/, _stringLiteral413196040, L_15, _stringLiteral1388283620, /*hidden argument*/NULL);
 		IL2CPP_RUNTIME_CLASS_INIT(Debug_t1368543263_il2cpp_TypeInfo_var);
 		Debug_LogError_m3715728798(NULL /*static, unused*/, L_16, /*hidden argument*/NULL);
-		__this->set_mFormatRegistered_11((bool)0);
+		__this->set_mFormatRegistered_10((bool)0);
 		int32_t L_17 = V_3;
 		V_3 = ((int32_t)((int32_t)L_17+(int32_t)1));
 	}
@@ -20565,7 +20604,7 @@ IL_00b3:
 			Collider_t3497673348 * L_27 = RaycastHit_get_collider_m301198172((&V_5), /*hidden argument*/NULL);
 			NullCheck(L_27);
 			String_t* L_28 = Component_get_tag_m357168014(L_27, /*hidden argument*/NULL);
-			GameObject_t1756533147 * L_29 = __this->get_tagPlane_6();
+			GameObject_t1756533147 * L_29 = __this->get_tagPlane_5();
 			NullCheck(L_29);
 			String_t* L_30 = GameObject_get_tag_m1425941094(L_29, /*hidden argument*/NULL);
 			IL2CPP_RUNTIME_CLASS_INIT(String_t_il2cpp_TypeInfo_var);
@@ -20773,7 +20812,7 @@ extern "C"  void UDTEventHandler_StopExtendedTracking_m1259032648 (UDTEventHandl
 	NO_UNUSED_WARNING (__leave_target);
 	int32_t G_B3_0 = 0;
 	{
-		TrackableSettings_t4265251850 * L_0 = __this->get_mTrackableSettings_15();
+		TrackableSettings_t4265251850 * L_0 = __this->get_mTrackableSettings_14();
 		IL2CPP_RUNTIME_CLASS_INIT(Object_t1021602117_il2cpp_TypeInfo_var);
 		bool L_1 = Object_op_Implicit_m2856731593(NULL /*static, unused*/, L_0, /*hidden argument*/NULL);
 		if (!L_1)
@@ -20782,7 +20821,7 @@ extern "C"  void UDTEventHandler_StopExtendedTracking_m1259032648 (UDTEventHandl
 		}
 	}
 	{
-		TrackableSettings_t4265251850 * L_2 = __this->get_mTrackableSettings_15();
+		TrackableSettings_t4265251850 * L_2 = __this->get_mTrackableSettings_14();
 		NullCheck(L_2);
 		bool L_3 = TrackableSettings_IsExtendedTrackingEnabled_m3457983194(L_2, /*hidden argument*/NULL);
 		G_B3_0 = ((int32_t)(L_3));

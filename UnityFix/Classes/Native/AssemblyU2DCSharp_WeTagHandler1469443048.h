@@ -14,6 +14,7 @@
 #include "Vuforia_UnityExtensions_Vuforia_Image_PIXEL_FORMAT3010530044.h"
 #include "UnityEngine_UnityEngine_Rect3681755626.h"
 #include "AssemblyU2DCSharp_TagOption3821855803.h"
+#include "UnityEngine_UnityEngine_Vector32243707580.h"
 
 // UnityEngine.GameObject
 struct GameObject_t1756533147;
@@ -41,26 +42,32 @@ public:
 	GameObject_t1756533147 * ___celebrityTag_2;
 	// UnityEngine.Material WeTagHandler::lineMat
 	Material_t193706927 * ___lineMat_3;
+	// UnityEngine.GameObject WeTagHandler::WeTagCanvas
+	GameObject_t1756533147 * ___WeTagCanvas_5;
+	// UnityEngine.GameObject WeTagHandler::scannerImage
+	GameObject_t1756533147 * ___scannerImage_6;
 	// System.String WeTagHandler::cognitiveAPIAuth
-	String_t* ___cognitiveAPIAuth_5;
+	String_t* ___cognitiveAPIAuth_7;
+	// System.Boolean WeTagHandler::_isRecognizing
+	bool ____isRecognizing_8;
 	// System.String WeTagHandler::cognitiveURI
-	String_t* ___cognitiveURI_6;
+	String_t* ___cognitiveURI_9;
 	// System.String WeTagHandler::mediaWikiURL
-	String_t* ___mediaWikiURL_7;
+	String_t* ___mediaWikiURL_10;
 	// UnityEngine.Texture2D WeTagHandler::captureImage
-	Texture2D_t3542995729 * ___captureImage_8;
+	Texture2D_t3542995729 * ___captureImage_11;
 	// UnityEngine.Rect WeTagHandler::box
-	Rect_t3681755626  ___box_9;
+	Rect_t3681755626  ___box_12;
 	// System.String WeTagHandler::boxText
-	String_t* ___boxText_10;
+	String_t* ___boxText_13;
 	// System.Boolean WeTagHandler::_isDetailShown
-	bool ____isDetailShown_11;
-	// System.Single WeTagHandler::titlePosition
-	float ___titlePosition_12;
+	bool ____isDetailShown_14;
 	// TagOption WeTagHandler::_tagOption
-	int32_t ____tagOption_13;
+	int32_t ____tagOption_15;
+	// UnityEngine.Vector3 WeTagHandler::tagOriginScale
+	Vector3_t2243707580  ___tagOriginScale_16;
 	// System.String WeTagHandler::currentDisplayWikiName
-	String_t* ___currentDisplayWikiName_14;
+	String_t* ___currentDisplayWikiName_17;
 
 public:
 	inline static int32_t get_offset_of_celebrityTag_2() { return static_cast<int32_t>(offsetof(WeTagHandler_t1469443048, ___celebrityTag_2)); }
@@ -81,90 +88,116 @@ public:
 		Il2CppCodeGenWriteBarrier(&___lineMat_3, value);
 	}
 
-	inline static int32_t get_offset_of_cognitiveAPIAuth_5() { return static_cast<int32_t>(offsetof(WeTagHandler_t1469443048, ___cognitiveAPIAuth_5)); }
-	inline String_t* get_cognitiveAPIAuth_5() const { return ___cognitiveAPIAuth_5; }
-	inline String_t** get_address_of_cognitiveAPIAuth_5() { return &___cognitiveAPIAuth_5; }
-	inline void set_cognitiveAPIAuth_5(String_t* value)
+	inline static int32_t get_offset_of_WeTagCanvas_5() { return static_cast<int32_t>(offsetof(WeTagHandler_t1469443048, ___WeTagCanvas_5)); }
+	inline GameObject_t1756533147 * get_WeTagCanvas_5() const { return ___WeTagCanvas_5; }
+	inline GameObject_t1756533147 ** get_address_of_WeTagCanvas_5() { return &___WeTagCanvas_5; }
+	inline void set_WeTagCanvas_5(GameObject_t1756533147 * value)
 	{
-		___cognitiveAPIAuth_5 = value;
-		Il2CppCodeGenWriteBarrier(&___cognitiveAPIAuth_5, value);
+		___WeTagCanvas_5 = value;
+		Il2CppCodeGenWriteBarrier(&___WeTagCanvas_5, value);
 	}
 
-	inline static int32_t get_offset_of_cognitiveURI_6() { return static_cast<int32_t>(offsetof(WeTagHandler_t1469443048, ___cognitiveURI_6)); }
-	inline String_t* get_cognitiveURI_6() const { return ___cognitiveURI_6; }
-	inline String_t** get_address_of_cognitiveURI_6() { return &___cognitiveURI_6; }
-	inline void set_cognitiveURI_6(String_t* value)
+	inline static int32_t get_offset_of_scannerImage_6() { return static_cast<int32_t>(offsetof(WeTagHandler_t1469443048, ___scannerImage_6)); }
+	inline GameObject_t1756533147 * get_scannerImage_6() const { return ___scannerImage_6; }
+	inline GameObject_t1756533147 ** get_address_of_scannerImage_6() { return &___scannerImage_6; }
+	inline void set_scannerImage_6(GameObject_t1756533147 * value)
 	{
-		___cognitiveURI_6 = value;
-		Il2CppCodeGenWriteBarrier(&___cognitiveURI_6, value);
+		___scannerImage_6 = value;
+		Il2CppCodeGenWriteBarrier(&___scannerImage_6, value);
 	}
 
-	inline static int32_t get_offset_of_mediaWikiURL_7() { return static_cast<int32_t>(offsetof(WeTagHandler_t1469443048, ___mediaWikiURL_7)); }
-	inline String_t* get_mediaWikiURL_7() const { return ___mediaWikiURL_7; }
-	inline String_t** get_address_of_mediaWikiURL_7() { return &___mediaWikiURL_7; }
-	inline void set_mediaWikiURL_7(String_t* value)
+	inline static int32_t get_offset_of_cognitiveAPIAuth_7() { return static_cast<int32_t>(offsetof(WeTagHandler_t1469443048, ___cognitiveAPIAuth_7)); }
+	inline String_t* get_cognitiveAPIAuth_7() const { return ___cognitiveAPIAuth_7; }
+	inline String_t** get_address_of_cognitiveAPIAuth_7() { return &___cognitiveAPIAuth_7; }
+	inline void set_cognitiveAPIAuth_7(String_t* value)
 	{
-		___mediaWikiURL_7 = value;
-		Il2CppCodeGenWriteBarrier(&___mediaWikiURL_7, value);
+		___cognitiveAPIAuth_7 = value;
+		Il2CppCodeGenWriteBarrier(&___cognitiveAPIAuth_7, value);
 	}
 
-	inline static int32_t get_offset_of_captureImage_8() { return static_cast<int32_t>(offsetof(WeTagHandler_t1469443048, ___captureImage_8)); }
-	inline Texture2D_t3542995729 * get_captureImage_8() const { return ___captureImage_8; }
-	inline Texture2D_t3542995729 ** get_address_of_captureImage_8() { return &___captureImage_8; }
-	inline void set_captureImage_8(Texture2D_t3542995729 * value)
+	inline static int32_t get_offset_of__isRecognizing_8() { return static_cast<int32_t>(offsetof(WeTagHandler_t1469443048, ____isRecognizing_8)); }
+	inline bool get__isRecognizing_8() const { return ____isRecognizing_8; }
+	inline bool* get_address_of__isRecognizing_8() { return &____isRecognizing_8; }
+	inline void set__isRecognizing_8(bool value)
 	{
-		___captureImage_8 = value;
-		Il2CppCodeGenWriteBarrier(&___captureImage_8, value);
+		____isRecognizing_8 = value;
 	}
 
-	inline static int32_t get_offset_of_box_9() { return static_cast<int32_t>(offsetof(WeTagHandler_t1469443048, ___box_9)); }
-	inline Rect_t3681755626  get_box_9() const { return ___box_9; }
-	inline Rect_t3681755626 * get_address_of_box_9() { return &___box_9; }
-	inline void set_box_9(Rect_t3681755626  value)
+	inline static int32_t get_offset_of_cognitiveURI_9() { return static_cast<int32_t>(offsetof(WeTagHandler_t1469443048, ___cognitiveURI_9)); }
+	inline String_t* get_cognitiveURI_9() const { return ___cognitiveURI_9; }
+	inline String_t** get_address_of_cognitiveURI_9() { return &___cognitiveURI_9; }
+	inline void set_cognitiveURI_9(String_t* value)
 	{
-		___box_9 = value;
+		___cognitiveURI_9 = value;
+		Il2CppCodeGenWriteBarrier(&___cognitiveURI_9, value);
 	}
 
-	inline static int32_t get_offset_of_boxText_10() { return static_cast<int32_t>(offsetof(WeTagHandler_t1469443048, ___boxText_10)); }
-	inline String_t* get_boxText_10() const { return ___boxText_10; }
-	inline String_t** get_address_of_boxText_10() { return &___boxText_10; }
-	inline void set_boxText_10(String_t* value)
+	inline static int32_t get_offset_of_mediaWikiURL_10() { return static_cast<int32_t>(offsetof(WeTagHandler_t1469443048, ___mediaWikiURL_10)); }
+	inline String_t* get_mediaWikiURL_10() const { return ___mediaWikiURL_10; }
+	inline String_t** get_address_of_mediaWikiURL_10() { return &___mediaWikiURL_10; }
+	inline void set_mediaWikiURL_10(String_t* value)
 	{
-		___boxText_10 = value;
-		Il2CppCodeGenWriteBarrier(&___boxText_10, value);
+		___mediaWikiURL_10 = value;
+		Il2CppCodeGenWriteBarrier(&___mediaWikiURL_10, value);
 	}
 
-	inline static int32_t get_offset_of__isDetailShown_11() { return static_cast<int32_t>(offsetof(WeTagHandler_t1469443048, ____isDetailShown_11)); }
-	inline bool get__isDetailShown_11() const { return ____isDetailShown_11; }
-	inline bool* get_address_of__isDetailShown_11() { return &____isDetailShown_11; }
-	inline void set__isDetailShown_11(bool value)
+	inline static int32_t get_offset_of_captureImage_11() { return static_cast<int32_t>(offsetof(WeTagHandler_t1469443048, ___captureImage_11)); }
+	inline Texture2D_t3542995729 * get_captureImage_11() const { return ___captureImage_11; }
+	inline Texture2D_t3542995729 ** get_address_of_captureImage_11() { return &___captureImage_11; }
+	inline void set_captureImage_11(Texture2D_t3542995729 * value)
 	{
-		____isDetailShown_11 = value;
+		___captureImage_11 = value;
+		Il2CppCodeGenWriteBarrier(&___captureImage_11, value);
 	}
 
-	inline static int32_t get_offset_of_titlePosition_12() { return static_cast<int32_t>(offsetof(WeTagHandler_t1469443048, ___titlePosition_12)); }
-	inline float get_titlePosition_12() const { return ___titlePosition_12; }
-	inline float* get_address_of_titlePosition_12() { return &___titlePosition_12; }
-	inline void set_titlePosition_12(float value)
+	inline static int32_t get_offset_of_box_12() { return static_cast<int32_t>(offsetof(WeTagHandler_t1469443048, ___box_12)); }
+	inline Rect_t3681755626  get_box_12() const { return ___box_12; }
+	inline Rect_t3681755626 * get_address_of_box_12() { return &___box_12; }
+	inline void set_box_12(Rect_t3681755626  value)
 	{
-		___titlePosition_12 = value;
+		___box_12 = value;
 	}
 
-	inline static int32_t get_offset_of__tagOption_13() { return static_cast<int32_t>(offsetof(WeTagHandler_t1469443048, ____tagOption_13)); }
-	inline int32_t get__tagOption_13() const { return ____tagOption_13; }
-	inline int32_t* get_address_of__tagOption_13() { return &____tagOption_13; }
-	inline void set__tagOption_13(int32_t value)
+	inline static int32_t get_offset_of_boxText_13() { return static_cast<int32_t>(offsetof(WeTagHandler_t1469443048, ___boxText_13)); }
+	inline String_t* get_boxText_13() const { return ___boxText_13; }
+	inline String_t** get_address_of_boxText_13() { return &___boxText_13; }
+	inline void set_boxText_13(String_t* value)
 	{
-		____tagOption_13 = value;
+		___boxText_13 = value;
+		Il2CppCodeGenWriteBarrier(&___boxText_13, value);
 	}
 
-	inline static int32_t get_offset_of_currentDisplayWikiName_14() { return static_cast<int32_t>(offsetof(WeTagHandler_t1469443048, ___currentDisplayWikiName_14)); }
-	inline String_t* get_currentDisplayWikiName_14() const { return ___currentDisplayWikiName_14; }
-	inline String_t** get_address_of_currentDisplayWikiName_14() { return &___currentDisplayWikiName_14; }
-	inline void set_currentDisplayWikiName_14(String_t* value)
+	inline static int32_t get_offset_of__isDetailShown_14() { return static_cast<int32_t>(offsetof(WeTagHandler_t1469443048, ____isDetailShown_14)); }
+	inline bool get__isDetailShown_14() const { return ____isDetailShown_14; }
+	inline bool* get_address_of__isDetailShown_14() { return &____isDetailShown_14; }
+	inline void set__isDetailShown_14(bool value)
 	{
-		___currentDisplayWikiName_14 = value;
-		Il2CppCodeGenWriteBarrier(&___currentDisplayWikiName_14, value);
+		____isDetailShown_14 = value;
+	}
+
+	inline static int32_t get_offset_of__tagOption_15() { return static_cast<int32_t>(offsetof(WeTagHandler_t1469443048, ____tagOption_15)); }
+	inline int32_t get__tagOption_15() const { return ____tagOption_15; }
+	inline int32_t* get_address_of__tagOption_15() { return &____tagOption_15; }
+	inline void set__tagOption_15(int32_t value)
+	{
+		____tagOption_15 = value;
+	}
+
+	inline static int32_t get_offset_of_tagOriginScale_16() { return static_cast<int32_t>(offsetof(WeTagHandler_t1469443048, ___tagOriginScale_16)); }
+	inline Vector3_t2243707580  get_tagOriginScale_16() const { return ___tagOriginScale_16; }
+	inline Vector3_t2243707580 * get_address_of_tagOriginScale_16() { return &___tagOriginScale_16; }
+	inline void set_tagOriginScale_16(Vector3_t2243707580  value)
+	{
+		___tagOriginScale_16 = value;
+	}
+
+	inline static int32_t get_offset_of_currentDisplayWikiName_17() { return static_cast<int32_t>(offsetof(WeTagHandler_t1469443048, ___currentDisplayWikiName_17)); }
+	inline String_t* get_currentDisplayWikiName_17() const { return ___currentDisplayWikiName_17; }
+	inline String_t** get_address_of_currentDisplayWikiName_17() { return &___currentDisplayWikiName_17; }
+	inline void set_currentDisplayWikiName_17(String_t* value)
+	{
+		___currentDisplayWikiName_17 = value;
+		Il2CppCodeGenWriteBarrier(&___currentDisplayWikiName_17, value);
 	}
 };
 

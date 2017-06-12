@@ -29,7 +29,6 @@
 
     id<RenderPluginDelegate>    _renderDelegate;
 }
-
 // ** ADDED ** All six of these function prototypes were added
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions;
 - (void)applicationWillResignActive:(UIApplication*)application;
@@ -37,6 +36,7 @@
 - (void)applicationWillEnterForeground:(UIApplication*)application;
 - (void)applicationDidBecomeActive:(UIApplication*)application;
 - (void)applicationWillTerminate:(UIApplication*)application;
+
 
 // override it to add your render plugin delegate
 - (void)shouldAttachRenderDelegate;
@@ -87,12 +87,11 @@
     AppControllerClassName = #ClassName;        \
 }                                               \
 @end                                            \
-//
+
 //inline UnityAppController*  GetAppController()
 //{
 //    return (UnityAppController*)[UIApplication sharedApplication].delegate;
 //}
-
 NS_INLINE UnityAppController* GetAppController()
 {
     NSObject<UIApplicationDelegate>* delegate = [UIApplication sharedApplication].delegate;

@@ -39,4 +39,4 @@ extern "C" void VuforiaRenderEvent(int marker);
 @end
 
 
-IMPL_APP_CONTROLLER_SUBCLASS(VuforiaNativeRendererController)
+//IMPL_APP_CONTROLLER_SUBCLASS(VuforiaNativeRendererController)

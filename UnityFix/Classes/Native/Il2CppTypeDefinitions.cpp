@@ -268,6 +268,7 @@ extern const Il2CppType String_t_0_0_32851 = { (void*)27, 32851, IL2CPP_TYPE_STR
 extern const Il2CppType String_t_0_0_5 = { (void*)27, 5, IL2CPP_TYPE_STRING, 0, 0, 0 };
 extern const Il2CppType String_t_0_0_32854 = { (void*)27, 32854, IL2CPP_TYPE_STRING, 0, 0, 0 };
 extern const Il2CppType String_t_0_0_22 = { (void*)27, 22, IL2CPP_TYPE_STRING, 0, 0, 0 };
+extern const Il2CppType String_t_0_0_4112 = { (void*)27, 4112, IL2CPP_TYPE_STRING, 0, 0, 0 };
 
 Il2CppGenericClass IEquatable_1_t4233202402_GenericClass = { 13, { &GenInst_String_t_0_0_0, NULL }, NULL };
 extern const Il2CppType IEquatable_1_t4233202402_0_0_0 = { &IEquatable_1_t4233202402_GenericClass, 0, IL2CPP_TYPE_GENERICINST, 0, 0, 0 };
@@ -24757,7 +24758,7 @@ extern const Il2CppType TrackableBehaviourU5BU5D_t3895575509_0_0_0 = { (void*)&T
 
 extern const Il2CppType WordAbstractBehaviour_t2878458725_0_0_0;
 extern const Il2CppType WordAbstractBehaviourU5BU5D_t3037784424_0_0_0 = { (void*)&WordAbstractBehaviour_t2878458725_0_0_0, 0, IL2CPP_TYPE_SZARRAY, 0, 0, 0 };
-extern const Il2CppType* const  g_Il2CppTypeTable[12505] = 
+extern const Il2CppType* const  g_Il2CppTypeTable[12506] = 
 {
 	&IEnumerator_1_t164973122_0_0_0,
 	&Il2CppObject_0_0_0,
@@ -37021,6 +37022,7 @@ extern const Il2CppType* const  g_Il2CppTypeTable[12505] =
 	&WeTagHandler_t1469443048_0_0_0,
 	&WeTagHandler_t1469443048_1_0_0,
 	&RecogFinishDelegate_t2824035069_0_0_0,
+	&String_t_0_0_4112,
 	&PIXEL_FORMAT_t3010530044_0_0_22,
 	&TagOption_t3821855803_0_0_1,
 	&RecogFinishDelegate_t2824035069_1_0_0,

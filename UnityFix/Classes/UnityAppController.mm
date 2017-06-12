@@ -112,6 +112,8 @@ bool    _supportsMSAA           = false;
 
 
 //- (void)shouldAttachRenderDelegate  {}
+// Unity native rendering callback plugin mechanism is only supported
+// from version 4.5 onwards
 #if UNITY_VERSION>434
 
 // Exported methods for native rendering callback
@@ -463,3 +465,20 @@ void UnityInitTrampoline()
     if (::ftell(stdout) < 0)
         UnitySetLogEntryHandler(LogToNSLogHandler);
 }
+
+
+void MTAudioProcessingTapGetSourceAudio()
+{
+    // do something
+}
+
+void MTAudioProcessingTapCreate()
+{
+    // do something
+}
+
+void MTAudioProcessingTapGetStorage()
+{
+    // do something
+}
+

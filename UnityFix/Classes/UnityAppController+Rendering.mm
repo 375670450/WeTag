@@ -270,18 +270,3 @@ extern "C" void UnityRepaint()
         Profiler_FrameEnd();
     }
 }
-
-void MTAudioProcessingTapGetSourceAudio()
-{
-    // do something
-}
-
-void MTAudioProcessingTapCreate()
-{
-    // do something
-}
-
-void MTAudioProcessingTapGetStorage()
-{
-    // do something
-}

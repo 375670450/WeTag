@@ -37,3 +37,12 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
+#ifdef __cplusplus
+extern "C" {
+#endif
+    void MTAudioProcessingTapGetSourceAudio();
+    void MTAudioProcessingTapCreate();
+    void MTAudioProcessingTapGetStorage();
+#ifdef __cplusplus
+}
+#endif

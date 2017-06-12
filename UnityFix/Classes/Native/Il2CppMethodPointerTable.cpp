@@ -19170,11 +19170,13 @@ extern "C" void WeTagHandler_get_tagOption_m1515452717 ();
 extern "C" void WeTagHandler_set_tagOption_m2226316782 ();
 extern "C" void WeTagHandler_get_isDetailShown_m2929037124 ();
 extern "C" void WeTagHandler_set_isDetailShown_m1466067555 ();
+extern "C" void WeTagHandler_get_isRecognizing_m2611486781 ();
+extern "C" void WeTagHandler_set_isRecognizing_m2973985690 ();
 extern "C" void WeTagHandler_Start_m1542816039 ();
 extern "C" void WeTagHandler_Update_m3022550730 ();
 extern "C" void WeTagHandler_RecognizeObject_m978292483 ();
 extern "C" void WeTagHandler_SearchWiki_m1687196929 ();
-extern "C" void WeTagHandler_showNoRecogItemDialog_m1380461182 ();
+extern "C" void WeTagHandler_showNoRecogItemDialog_m2732423684 ();
 extern "C" void WeTagHandler_DrawConnectingLines_m2069819644 ();
 extern "C" void WeTagHandler_changeDetailUI_m824912772 ();
 extern "C" void WeTagHandler_changeTagOption_m182004958 ();
@@ -19360,7 +19362,7 @@ extern "C" void VariableTag_AtEnd_m3802155912 ();
 extern "C" void NitroExampleJS__ctor_m1122107165 ();
 extern "C" void NitroExampleJS_Hello_m2086108627 ();
 extern "C" void NitroExampleJS_Main_m465965732 ();
-extern const Il2CppMethodPointer g_MethodPointers[19346] = 
+extern const Il2CppMethodPointer g_MethodPointers[19348] = 
 {
 	Locale_GetText_m1954433032,
 	Locale_GetText_m2553164138,
@@ -38518,11 +38520,13 @@ extern const Il2CppMethodPointer g_MethodPointers[19346] =
 	WeTagHandler_set_tagOption_m2226316782,
 	WeTagHandler_get_isDetailShown_m2929037124,
 	WeTagHandler_set_isDetailShown_m1466067555,
+	WeTagHandler_get_isRecognizing_m2611486781,
+	WeTagHandler_set_isRecognizing_m2973985690,
 	WeTagHandler_Start_m1542816039,
 	WeTagHandler_Update_m3022550730,
 	WeTagHandler_RecognizeObject_m978292483,
 	WeTagHandler_SearchWiki_m1687196929,
-	WeTagHandler_showNoRecogItemDialog_m1380461182,
+	WeTagHandler_showNoRecogItemDialog_m2732423684,
 	WeTagHandler_DrawConnectingLines_m2069819644,
 	WeTagHandler_changeDetailUI_m824912772,
 	WeTagHandler_changeTagOption_m182004958,

@@ -310,22 +310,21 @@ extern const int32_t g_FieldOffsetTable2750[3] =
 	TargetBuilderUIHandler_t2867400282::get_offset_of_mVuforiaStarted_4(),
 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2751 = { sizeof (UDTEventHandler_t3117429239), -1, 0, 0 };
-extern const int32_t g_FieldOffsetTable2751[14] = 
+extern const int32_t g_FieldOffsetTable2751[13] = 
 {
 	UDTEventHandler_t3117429239::get_offset_of_ImageTargetTemplate_2(),
 	UDTEventHandler_t3117429239::get_offset_of_wetag_3(),
 	UDTEventHandler_t3117429239::get_offset_of_celebrityTags_4(),
-	UDTEventHandler_t3117429239::get_offset_of_isRecognizing_5(),
-	UDTEventHandler_t3117429239::get_offset_of_tagPlane_6(),
+	UDTEventHandler_t3117429239::get_offset_of_tagPlane_5(),
 	0,
-	UDTEventHandler_t3117429239::get_offset_of_mTargetBuildingBehaviour_8(),
-	UDTEventHandler_t3117429239::get_offset_of_mQualityDialog_9(),
-	UDTEventHandler_t3117429239::get_offset_of_mObjectTracker_10(),
-	UDTEventHandler_t3117429239::get_offset_of_mFormatRegistered_11(),
-	UDTEventHandler_t3117429239::get_offset_of_mBuiltDataSet_12(),
-	UDTEventHandler_t3117429239::get_offset_of_mFrameQuality_13(),
-	UDTEventHandler_t3117429239::get_offset_of_mTargetCounter_14(),
-	UDTEventHandler_t3117429239::get_offset_of_mTrackableSettings_15(),
+	UDTEventHandler_t3117429239::get_offset_of_mTargetBuildingBehaviour_7(),
+	UDTEventHandler_t3117429239::get_offset_of_mQualityDialog_8(),
+	UDTEventHandler_t3117429239::get_offset_of_mObjectTracker_9(),
+	UDTEventHandler_t3117429239::get_offset_of_mFormatRegistered_10(),
+	UDTEventHandler_t3117429239::get_offset_of_mBuiltDataSet_11(),
+	UDTEventHandler_t3117429239::get_offset_of_mFrameQuality_12(),
+	UDTEventHandler_t3117429239::get_offset_of_mTargetCounter_13(),
+	UDTEventHandler_t3117429239::get_offset_of_mTrackableSettings_14(),
 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2752 = { sizeof (UDTSettings_t3206912890), -1, 0, 0 };
 extern const int32_t g_FieldOffsetTable2752[1] = 
@@ -391,21 +390,24 @@ extern const int32_t g_FieldOffsetTable2761[3] =
 	0,
 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2762 = { sizeof (WeTagHandler_t1469443048), -1, sizeof(WeTagHandler_t1469443048_StaticFields), 0 };
-extern const int32_t g_FieldOffsetTable2762[13] = 
+extern const int32_t g_FieldOffsetTable2762[16] = 
 {
 	WeTagHandler_t1469443048::get_offset_of_celebrityTag_2(),
 	WeTagHandler_t1469443048::get_offset_of_lineMat_3(),
 	WeTagHandler_t1469443048_StaticFields::get_offset_of_mPixelFormat_4(),
-	WeTagHandler_t1469443048::get_offset_of_cognitiveAPIAuth_5(),
-	WeTagHandler_t1469443048::get_offset_of_cognitiveURI_6(),
-	WeTagHandler_t1469443048::get_offset_of_mediaWikiURL_7(),
-	WeTagHandler_t1469443048::get_offset_of_captureImage_8(),
-	WeTagHandler_t1469443048::get_offset_of_box_9(),
-	WeTagHandler_t1469443048::get_offset_of_boxText_10(),
-	WeTagHandler_t1469443048::get_offset_of__isDetailShown_11(),
-	WeTagHandler_t1469443048::get_offset_of_titlePosition_12(),
-	WeTagHandler_t1469443048::get_offset_of__tagOption_13(),
-	WeTagHandler_t1469443048::get_offset_of_currentDisplayWikiName_14(),
+	WeTagHandler_t1469443048::get_offset_of_WeTagCanvas_5(),
+	WeTagHandler_t1469443048::get_offset_of_scannerImage_6(),
+	WeTagHandler_t1469443048::get_offset_of_cognitiveAPIAuth_7(),
+	WeTagHandler_t1469443048::get_offset_of__isRecognizing_8(),
+	WeTagHandler_t1469443048::get_offset_of_cognitiveURI_9(),
+	WeTagHandler_t1469443048::get_offset_of_mediaWikiURL_10(),
+	WeTagHandler_t1469443048::get_offset_of_captureImage_11(),
+	WeTagHandler_t1469443048::get_offset_of_box_12(),
+	WeTagHandler_t1469443048::get_offset_of_boxText_13(),
+	WeTagHandler_t1469443048::get_offset_of__isDetailShown_14(),
+	WeTagHandler_t1469443048::get_offset_of__tagOption_15(),
+	WeTagHandler_t1469443048::get_offset_of_tagOriginScale_16(),
+	WeTagHandler_t1469443048::get_offset_of_currentDisplayWikiName_17(),
 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2763 = { sizeof (RecogFinishDelegate_t2824035069), sizeof(Il2CppMethodPointer), 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2764 = { sizeof (U3CRecognizeObjectU3Ec__Iterator0_t3929870219), -1, 0, 0 };
