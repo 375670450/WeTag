@@ -15,15 +15,26 @@ class UnityGLViewController: UIViewController {
     override func viewDidLoad() {
         let unityView = UnityGetGLView()
         
+        unityView!.translatesAutoresizingMaskIntoConstraints = false;
+        let value = UIInterfaceOrientation.landscapeLeft.rawValue;
+        UIDevice.current.setValue(value, forKey: "orientation")
         
         self.view.addSubview(unityView!)
-        unityView!.translatesAutoresizingMaskIntoConstraints = false;
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscapeLeft
+    }
+    
+    private func shouldAutorotate() -> Bool {
+        return true
     }
     
 
