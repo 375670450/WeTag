@@ -10,6 +10,11 @@ import UIKit
 
 class ImageViewController: UIViewController, UIImagePickerControllerDelegate , UINavigationControllerDelegate {
     
+    enum RecognizeType{
+        case Celebrity
+        case Landmark
+    }
+    
     public var pickedImage: UIImage!
     var ratio: CGFloat = 0.0
     var celebraty: String = ""
@@ -22,10 +27,9 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate , U
         
         photoImageView.image = pickedImage;
         //        searchWiki(name: "Jack%20Ma");
-        recognize(image: pickedImage)
+        recognize(image: pickedImage, type: RecognizeType.Celebrity)
         // Do any additional setup after loading the view.
     }
-    
     
     /*
      override func didReceiveMemoryWarning() {
@@ -50,14 +54,13 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate , U
     
     private var mediaWikiURL = "http://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrlimit=10&prop=extracts&exintro&explaintext&gsrsearch=";
     
-    private var cognitiveURL =  "https://api.cognitive.azure.cn/vision/v1.0/models/celebrities/analyze"
+    private var cognitiveURL_Celebrity =  "https://api.cognitive.azure.cn/vision/v1.0/models/celebrities/analyze"
+    private var cognitiveURL_Landmark =  "https://api.cognitive.azure.cn/vision/v1.0/models/landmarks/analyze"
     
     private var auth = "974c0cbdf8b244c28024aaab33ab2fdb"
     
-    
     func searchWiki(name: String) {
         let url = mediaWikiURL + name;
-        
         
         var request = URLRequest(url: URL(string: url.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!)!)
         
@@ -94,8 +97,6 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate , U
                         self.wikiInfo = (value?["extract"] as? String)!
                         print("wiki:\(self.wikiInfo)")
                         
-                        
-                        
                     }
                 }
             } else {
@@ -107,11 +108,17 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate , U
         task.resume()
     }
     
-    public func recognize(image: UIImage){
+    public func recognize(image: UIImage, type: RecognizeType){
         let quality: CGFloat = 0.3
         if let imageData = UIImageJPEGRepresentation(image, quality) {
+            var url: URL
+            if( type == RecognizeType.Celebrity ){
+                url = URL(string: cognitiveURL_Celebrity)!
+            }else{
+                url = URL(string: cognitiveURL_Landmark)!
+            }
             
-            var request = URLRequest(url: URL(string: cognitiveURL)!)
+            var request = URLRequest(url: url)
             request.addValue(auth, forHTTPHeaderField: "Ocp-Apim-Subscription-Key");
             request.addValue("application/octet-stream", forHTTPHeaderField: "Content-Type")
             //            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -133,57 +140,59 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate , U
                 
                 if let json = try? JSONSerialization.jsonObject(with: (responseString?.data(using: .utf8))!) as? [String:Any]{
                     if let result = json?["result"] as? [String:Any]
-                        ,let celebrities = result["celebrities"] as? [[String:Any]]{
+                        ,let items = ( type == RecognizeType.Celebrity ? result["celebrities"] : result["landmarks"] ) as? [[String:Any]]{
                         //                print("response json = \(pages)")
-                        for object in celebrities {
-                            /*
-                             {
-                             "name": "ROBERT DOWNEY JR.",
-                             "faceRectangle": {
-                             "left": 483,
-                             "top": 174,
-                             "width": 52,
-                             "height": 52
-                             }
-                             }
-                             */
-                            
-                            let name = object["name"] as? String
-                            self.celebraty = name!
-                            let faceRectangle = object["faceRectangle"] as? [String:Any]
-                            var top = faceRectangle?["top"] as? CGFloat
-                            var left = faceRectangle?["left"] as? CGFloat
-                            var width = faceRectangle?["width"] as? CGFloat
-                            var height = faceRectangle?["height"] as? CGFloat
-                            
-                            //calculate the actual number
-                            self.ratio = self.photoImageView.frame.width / self.pickedImage.size.width
-                            top = top! * self.ratio
-                            left = left! * self.ratio
-                            width = width! * self.ratio
-                            height = height! * self.ratio
-                            
-                            //框住人脸
-//
-                            let labelX = self.photoImageView.center.x + left! - self.photoImageView.frame.width / 2
-                            let labelY = self.photoImageView.center.y + top! - self.pickedImage.size.height * self.ratio / 2
-                            let label = UILabel(frame: CGRect(x: labelX, y: labelY, width: width!, height: height!))
-                            label.layer.borderWidth = 2
-                            label.layer.borderColor = UIColor.red.cgColor
-                                                        label.backgroundColor = UIColor.clear
-                            self.view.addSubview(label)
-                                                        //显示tag
-                            let buttonY = labelY - 60
-                            let buttonX = labelX
-                            let button = UIButton(frame: CGRect(x: buttonX, y: buttonY , width: 200, height: 50))
-                            //let button = UIButton(frame: CGRect(x: 100, y: 100, width: 50, height: 50))
-                            button.setTitle(name, for: .normal)
-                            button.backgroundColor = UIColor.gray
-                            button.setTitleColor(UIColor.black, for: .normal)
-                            button.addTarget(self, action: #selector(self.tapped(sender:)), for: .touchUpInside)
-                            
-                            self.view.addSubview(button)
+                        if( items.count > 0 ){
+                            for object in items {
+                                let name = object["name"] as? String
+                                self.celebraty = name!
+                                var top, left, width, height: CGFloat?
+                                
+                                if let faceRectangle = object["faceRectangle"] as? [String:Any] {
+                                    top = faceRectangle["top"] as? CGFloat
+                                    left = faceRectangle["left"] as? CGFloat
+                                    width = faceRectangle["width"] as? CGFloat
+                                    height = faceRectangle["height"] as? CGFloat
+                                }else{      // Landmark无 faceRectangle, 把标签放中间
+                                    top = image.size.height / 2
+                                    left = image.size.width / 2
+                                    width = image.size.width / 2
+                                    height = image.size.height / 2
+                                }
+                                
+                                //calculate the actual number
+                                self.ratio = self.photoImageView.frame.width / self.pickedImage.size.width
+                                top = top! * self.ratio
+                                left = left! * self.ratio
+                                width = width! * self.ratio
+                                height = height! * self.ratio
+                                
+                                //框住人脸
+                                //
+                                let labelX = self.photoImageView.center.x + left! - self.photoImageView.frame.width / 2
+                                let labelY = self.photoImageView.center.y + top! - self.pickedImage.size.height * self.ratio / 2
+                                let label = UILabel(frame: CGRect(x: labelX, y: labelY, width: width!, height: height!))
+                                label.layer.borderWidth = 2
+                                label.layer.borderColor = UIColor.red.cgColor
+                                label.backgroundColor = UIColor.clear
+                                self.view.addSubview(label)
+                                //显示tag
+                                let buttonY = labelY - 60
+                                let buttonX = labelX
+                                let button = UIButton(frame: CGRect(x: buttonX, y: buttonY , width: 200, height: 50))
+                                //let button = UIButton(frame: CGRect(x: 100, y: 100, width: 50, height: 50))
+                                button.setTitle(name, for: .normal)
+                                button.backgroundColor = UIColor.gray
+                                button.setTitleColor(UIColor.black, for: .normal)
+                                button.addTarget(self, action: #selector(self.tapped(sender:)), for: .touchUpInside)
+                                
+                                self.view.addSubview(button)
+                            }
+                        }else{
+                            print("Cannot recognize celebrities, try landmarks")
+                            self.recognize(image: image, type: RecognizeType.Landmark)
                         }
+                        
                     }else{
                         if let message = json?["message"] as? String{   // 请求的错误信息，如"Input image is too large."
                             print("request error = \(message)")
