@@ -53,7 +53,7 @@
                                 <state key="normal" backgroundImage="camera"/>
                                 <connections>
                                     <action selector="VRCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bow-Jh-KEV"/>
-                                    <segue destination="8Pc-9f-Bkr" kind="show" action="showDetailViewController:sender:" id="IDs-mP-uzq"/>
+                                    <segue destination="8Pc-9f-Bkr" kind="show" id="ote-Fk-vJ9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -88,10 +88,10 @@
             </objects>
             <point key="canvasLocation" x="3789.5999999999999" y="62.518740629685162"/>
         </scene>
-        <!--UnityGL View Controller-->
+        <!--UnityView-->
         <scene sceneID="o5u-vI-vcC">
             <objects>
-                <viewController id="8Pc-9f-Bkr" customClass="UnityGLViewController" customModule="WeTagUnity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="UnityView" id="8Pc-9f-Bkr" customClass="UnityGLViewController" customModule="WeTagUnity" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xDM-EU-ilQ"/>
                         <viewControllerLayoutGuide type="bottom" id="ER7-lX-Uj6"/>
@@ -104,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ROf-hz-Uzn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3822" y="838"/>
+            <point key="canvasLocation" x="4069" y="928"/>
         </scene>
         <!--识别结果-->
         <scene sceneID="G92-00-CkN">

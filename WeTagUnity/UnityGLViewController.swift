@@ -12,16 +12,22 @@ class UnityGLViewController: UIViewController {
 
     @IBOutlet var glVIew: GLKView!
     
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         let unityView = UnityGetGLView()
         
-        
         unityView!.translatesAutoresizingMaskIntoConstraints = false;
-//        let value = UIInterfaceOrientation.landscapeLeft.rawValue;
-//        UIDevice.current.setValue(value, forKey: "orientation")
+        let value = UIInterfaceOrientation.landscapeLeft.rawValue;
+        UIDevice.current.setValue(value, forKey: "orientation")
         
         self.view.addSubview(unityView!)
     }
+    
+    @IBAction func PopUnityView(_ sender: UIBarButtonItem) {
+//        self.navigationController?.popViewController(animated: true)
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
