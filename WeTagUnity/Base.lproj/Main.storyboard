@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bus-KE-1yz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bus-KE-1yz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QS8-zk-VTq">
-                                <rect key="frame" x="16" y="549" width="68" height="68"/>
+                                <rect key="frame" x="16" y="564" width="53" height="53"/>
                                 <accessibility key="accessibilityConfiguration" identifier="selectPicture"/>
                                 <state key="normal" backgroundImage="photo"/>
                                 <connections>
@@ -37,11 +37,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2NP-Yz-PRu">
-                                <rect key="frame" x="291" y="549" width="68" height="68"/>
+                                <rect key="frame" x="306" y="564" width="53" height="53"/>
                                 <state key="normal" backgroundImage="camera"/>
                                 <connections>
                                     <action selector="VRCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bow-Jh-KEV"/>
-                                    <segue destination="8Pc-9f-Bkr" kind="show" id="IDs-mP-uzq"/>
+                                    <segue destination="8Pc-9f-Bkr" kind="presentation" id="IDs-mP-uzq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -58,7 +58,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="首页" id="azN-mQ-iIK">
-                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="Ic5-JV-HqY">
+                        <barButtonItem key="rightBarButtonItem" title="  关于" id="Ic5-JV-HqY">
                             <connections>
                                 <segue destination="a9b-4x-VNH" kind="show" id="fw3-OP-ngl"/>
                             </connections>
@@ -91,7 +91,7 @@
             </objects>
             <point key="canvasLocation" x="3822" y="838"/>
         </scene>
-        <!--调整-->
+        <!--识别结果-->
         <scene sceneID="G92-00-CkN">
             <objects>
                 <viewController id="5hT-6b-PB6" customClass="ImageViewController" customModule="WeTagUnity" customModuleProvider="target" sceneMemberID="viewController">
@@ -106,28 +106,41 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dyS-7F-ddu">
                                 <rect key="frame" x="57" y="142" width="261" height="383"/>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="I4D-uK-3b6">
+                                <rect key="frame" x="16" y="517" width="343" height="150"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="cWO-jD-FdT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="light"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.30141280860000003" blue="0.19628927469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="dyS-7F-ddu" firstAttribute="centerX" secondItem="uRQ-a9-11Q" secondAttribute="centerX" id="3CU-qN-7uM"/>
                             <constraint firstItem="dyS-7F-ddu" firstAttribute="top" secondItem="sC5-fg-Mth" secondAttribute="bottom" constant="78" id="4Wb-qi-963"/>
+                            <constraint firstItem="2Mm-le-Rfk" firstAttribute="top" secondItem="I4D-uK-3b6" secondAttribute="bottom" id="BxN-Gr-MEC"/>
+                            <constraint firstItem="I4D-uK-3b6" firstAttribute="leading" secondItem="uRQ-a9-11Q" secondAttribute="leadingMargin" id="CMj-VV-Jof"/>
                             <constraint firstItem="dyS-7F-ddu" firstAttribute="centerY" secondItem="uRQ-a9-11Q" secondAttribute="centerY" id="I8n-MX-mFk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="I4D-uK-3b6" secondAttribute="trailing" id="ORD-k1-KPh"/>
                             <constraint firstItem="dyS-7F-ddu" firstAttribute="leading" secondItem="uRQ-a9-11Q" secondAttribute="leadingMargin" constant="41" id="pFH-cb-rns"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="调整" id="7t2-Go-vaH"/>
+                    <navigationItem key="navigationItem" title="识别结果" id="7t2-Go-vaH"/>
                     <connections>
                         <outlet property="photoImageView" destination="dyS-7F-ddu" id="vxY-gm-SuD"/>
+                        <outlet property="textView" destination="I4D-uK-3b6" id="Gi3-iy-4XI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M5y-nf-m0B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2966" y="838"/>
+            <point key="canvasLocation" x="2965.5999999999999" y="837.93103448275872"/>
         </scene>
-        <!--Info Table View Controller-->
+        <!--百科立显-->
         <scene sceneID="mIl-s7-kc4">
             <objects>
-                <tableViewController id="a9b-4x-VNH" customClass="InfoTableViewController" customModule="WeTagUnity" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="百科立显" id="a9b-4x-VNH" customClass="InfoTableViewController" customModule="WeTagUnity" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Sdb-3O-bOl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -137,10 +150,10 @@
                             <tableViewSection headerTitle="产品信息" id="n21-ss-cGJ">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="TdB-9b-Cbu" customClass="InfoTableViewCell" customModule="WeTagUnity" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TdB-9b-Cbu" id="Xto-S9-Tib">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="版本号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MdP-EZ-1DO">
@@ -154,10 +167,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="VOC-NY-gsB" customClass="InfoTableViewCell" customModule="WeTagUnity" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="100" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VOC-NY-gsB" id="z4R-fD-1Bb">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="隐私声明" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IcV-K9-cdS">
@@ -171,10 +184,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="mJ4-rD-5Yf" customClass="InfoTableViewCell" customModule="WeTagUnity" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="144" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="143.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mJ4-rD-5Yf" id="jMs-Rh-r82">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="服务协议" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E33-WX-LZc">
@@ -192,10 +205,10 @@
                             <tableViewSection headerTitle="开发者信息" id="pa3-VR-Otm">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Q96-t6-g5q" customClass="InfoTableViewCell" customModule="WeTagUnity" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="245" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="243.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q96-t6-g5q" id="m1u-Os-avL">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="反馈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQP-Gc-1VD">
@@ -209,10 +222,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="iBr-3a-IEp" customClass="InfoTableViewCell" customModule="WeTagUnity" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="289" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="287.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iBr-3a-IEp" id="RQC-w2-uK4">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="关于我们" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEK-GI-SGE">

@@ -5,7 +5,6 @@
 //  Created by 冯丽文 on 2017/6/13.
 //  Copyright © 2017年 cs. All rights reserved.
 //
-
 import UIKit
 
 class ImageViewController: UIViewController, UIImagePickerControllerDelegate , UINavigationControllerDelegate {
@@ -17,9 +16,10 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate , U
     
     public var pickedImage: UIImage!
     var ratio: CGFloat = 0.0
-    var celebraty: String = ""
     var wikiInfo: String = ""
     
+    
+    @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var photoImageView: UIImageView!
     
     override func viewDidLoad() {
@@ -28,7 +28,12 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate , U
         photoImageView.image = pickedImage;
         //        searchWiki(name: "Jack%20Ma");
         recognize(image: pickedImage, type: RecognizeType.Celebrity)
-        // Do any additional setup after loading the view.
+        
+        
+        //        print("wiki:\(self.wikiInfo)")
+        //label.text = self.wikiInfo
+        
+        //self.view.addSubview(label)        // Do any additional setup after loading the view.
     }
     
     /*
@@ -47,6 +52,7 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate , U
      // Pass the selected object to the new view controller.
      }
      */
+    
     
     
     
@@ -88,10 +94,10 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate , U
                 
                 for (key, _value) in pages{
                     let value = _value as? [String:Any]
-//                    print("_value = \(_value)")
+                    //                    print("_value = \(_value)")
                     
                     let index = value?["index"] as? Int
-//                    print("key = \(key)")
+                    //                    print("key = \(key)")
                     if index == 1 {
                         // 异步函数不方便返回值，因此暂时把查询结果直接写到对象的私有成员里，之后修改UI显示的文字为wikiInfo字符串
                         self.wikiInfo = (value?["extract"] as? String)!
@@ -142,10 +148,9 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate , U
                     if let result = json?["result"] as? [String:Any]
                         ,let items = ( type == RecognizeType.Celebrity ? result["celebrities"] : result["landmarks"] ) as? [[String:Any]]{
                         //                print("response json = \(pages)")
-                        if( items.count > 0 ){
+                        if( type == RecognizeType.Celebrity && items.count > 0 ){
                             for object in items {
                                 let name = object["name"] as? String
-                                self.celebraty = name!
                                 var top, left, width, height: CGFloat?
                                 
                                 if let faceRectangle = object["faceRectangle"] as? [String:Any] {
@@ -168,25 +173,36 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate , U
                                 height = height! * self.ratio
                                 
                                 //框住人脸
-                                //
+                                
                                 let labelX = self.photoImageView.center.x + left! - self.photoImageView.frame.width / 2
                                 let labelY = self.photoImageView.center.y + top! - self.pickedImage.size.height * self.ratio / 2
-                                let label = UILabel(frame: CGRect(x: labelX, y: labelY, width: width!, height: height!))
-                                label.layer.borderWidth = 2
-                                label.layer.borderColor = UIColor.red.cgColor
-                                label.backgroundColor = UIColor.clear
-                                self.view.addSubview(label)
-                                //显示tag
-                                let buttonY = labelY - 60
-                                let buttonX = labelX
-                                let button = UIButton(frame: CGRect(x: buttonX, y: buttonY , width: 200, height: 50))
-                                //let button = UIButton(frame: CGRect(x: 100, y: 100, width: 50, height: 50))
-                                button.setTitle(name, for: .normal)
-                                button.backgroundColor = UIColor.gray
-                                button.setTitleColor(UIColor.black, for: .normal)
-                                button.addTarget(self, action: #selector(self.tapped(sender:)), for: .touchUpInside)
+                                if (object["faceRectangle"] as? [String:Any]) != nil {
+                                    let label = UILabel(frame: CGRect(x: labelX, y: labelY, width: width!, height: height!))
+                                    label.layer.borderWidth = 2
+                                    label.layer.borderColor = UIColor.red.cgColor
+                                    label.backgroundColor = UIColor.clear
+                                    
+                                    DispatchQueue.main.async {
+                                        self.view.addSubview(label)
+                                    }
+                                }
                                 
-                                self.view.addSubview(button)
+                                
+                                DispatchQueue.main.async {
+                                    
+                                    //显示tag
+                                    let buttonY = labelY - 60
+                                    let buttonX = labelX
+                                    let button = UIButton(frame: CGRect(x: buttonX, y: buttonY , width: 200, height: 50))
+                                    //let button = UIButton(frame: CGRect(x: 100, y: 100, width: 50, height: 50))
+                                    button.setTitle(name, for: .normal)
+                                    button.backgroundColor = UIColor.white
+                                    button.setTitleColor(UIColor.black, for: .normal)
+                                    button.addTarget(self, action: #selector(self.tapped(_:)), for: .touchUpInside)
+                                    
+                                    self.view.addSubview(button)
+                                }
+                                
                             }
                         }else{
                             print("Cannot recognize celebrities, try landmarks")
@@ -210,19 +226,15 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate , U
         
     }
     
-    func tapped(sender: UIButton) {
-        let labelY = Int(self.view.frame.maxY) - 200
-        let labelWidth = Int(self.view.frame.width)
-        let label = UILabel(frame: CGRect(x: 0, y: labelY, width: labelWidth, height: 200))
-        label.backgroundColor = UIColor.white
-        searchWiki(name: celebraty)
-//        print("wiki:\(self.wikiInfo)")
-        label.text = self.wikiInfo
+    func tapped(_ button: UIButton) {
+        let celebraty = button.currentTitle
+        searchWiki(name: celebraty!)
         
-        self.view.addSubview(label)
+        textView.text = self.wikiInfo
     }
     
     
 }
+
 
 
