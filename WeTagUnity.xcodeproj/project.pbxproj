@@ -13,7 +13,6 @@
 		40BE530E1EF02E32000E097D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40BE53001EF02E32000E097D /* Assets.xcassets */; };
 		40BE530F1EF02E32000E097D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40BE53011EF02E32000E097D /* LaunchScreen.storyboard */; };
 		40BE53101EF02E32000E097D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40BE53031EF02E32000E097D /* Main.storyboard */; };
-		40BE53111EF02E32000E097D /* CognitiveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BE53051EF02E32000E097D /* CognitiveAPI.swift */; };
 		40BE53121EF02E32000E097D /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BE53061EF02E32000E097D /* ImageViewController.swift */; };
 		40BE53131EF02E32000E097D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40BE53071EF02E32000E097D /* Info.plist */; };
 		40BE53141EF02E32000E097D /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BE53081EF02E32000E097D /* InfoTableViewCell.swift */; };
@@ -177,7 +176,6 @@
 		40BE53001EF02E32000E097D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40BE53021EF02E32000E097D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40BE53041EF02E32000E097D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		40BE53051EF02E32000E097D /* CognitiveAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CognitiveAPI.swift; sourceTree = "<group>"; };
 		40BE53061EF02E32000E097D /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		40BE53071EF02E32000E097D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40BE53081EF02E32000E097D /* InfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
@@ -5346,7 +5344,6 @@
 				40BE53001EF02E32000E097D /* Assets.xcassets */,
 				40BE53011EF02E32000E097D /* LaunchScreen.storyboard */,
 				40BE53031EF02E32000E097D /* Main.storyboard */,
-				40BE53051EF02E32000E097D /* CognitiveAPI.swift */,
 				40BE53061EF02E32000E097D /* ImageViewController.swift */,
 				40BE53071EF02E32000E097D /* Info.plist */,
 				40BE53081EF02E32000E097D /* InfoTableViewCell.swift */,
@@ -11299,7 +11296,6 @@
 				40C79D541EEE93DC00DCE783 /* Bulk_mscorlib_7.cpp in Sources */,
 				40C79D6A1EEE93DC00DCE783 /* Il2CppCompilerCalculateTypeValues_11Table.cpp in Sources */,
 				40C79D9B1EEE93DD00DCE783 /* OrientationSupport.mm in Sources */,
-				40BE53111EF02E32000E097D /* CognitiveAPI.swift in Sources */,
 				40BE530D1EF02E32000E097D /* AppDelegate.swift in Sources */,
 				40C79DB61EEE93DD00DCE783 /* UnityAppController.mm in Sources */,
 				40C79D3B1EEE93DC00DCE783 /* Bulk_Assembly-CSharp_5.cpp in Sources */,

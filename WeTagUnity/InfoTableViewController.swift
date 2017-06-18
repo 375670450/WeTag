@@ -73,13 +73,13 @@ class InfoTableViewController: UITableViewController {
         let itemString = [
             0:[String]([
                 "v1.0",
-                "仅限使用",
-                "服务协议"]),
+                "Usage Only",
+                "Service Protocol"]),
             1:[String]([
-                "反馈请联系",
-                "浙大学生"])
+                "Feedback",
+                "ZJU"])
         ];
-        let alertController = UIAlertController(title: "提示", message: "\(itemString[indexPath.section]![indexPath.row])", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Notice", message: "\(itemString[indexPath.section]![indexPath.row])", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "yes", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         self.present(alertController, animated: true, completion: nil)
