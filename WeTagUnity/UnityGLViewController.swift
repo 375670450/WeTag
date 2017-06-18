@@ -16,8 +16,11 @@ class UnityGLViewController: UIViewController {
         let unityView = UnityGetGLView()
         
         
-        self.view.addSubview(unityView!)
         unityView!.translatesAutoresizingMaskIntoConstraints = false;
+//        let value = UIInterfaceOrientation.landscapeLeft.rawValue;
+//        UIDevice.current.setValue(value, forKey: "orientation")
+        
+        self.view.addSubview(unityView!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,8 +28,14 @@ class UnityGLViewController: UIViewController {
         
         // Dispose of any resources that can be recreated.
     }
+//    
     
-
+    
+    private func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    
     /*
     // MARK: - Navigation
 

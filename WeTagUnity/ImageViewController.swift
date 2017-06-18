@@ -234,6 +234,13 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate , U
     }
     
     
+    private func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    
+    
+
 }
 
 

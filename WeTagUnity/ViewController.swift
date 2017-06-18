@@ -69,6 +69,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    private func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    
+    
+    
+    // Orientation
+    
+    
+    
+    
 
 
 }
