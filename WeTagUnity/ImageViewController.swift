@@ -148,7 +148,7 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate , U
                     if let result = json?["result"] as? [String:Any]
                         ,let items = ( type == RecognizeType.Celebrity ? result["celebrities"] : result["landmarks"] ) as? [[String:Any]]{
                         //                print("response json = \(pages)")
-                        if( type == RecognizeType.Celebrity && items.count > 0 ){
+                        if( items.count > 0 ){
                             for object in items {
                                 let name = object["name"] as? String
                                 var top, left, width, height: CGFloat?
@@ -177,12 +177,12 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate , U
                                 let labelX = self.photoImageView.center.x + left! - self.photoImageView.frame.width / 2
                                 let labelY = self.photoImageView.center.y + top! - self.pickedImage.size.height * self.ratio / 2
                                 if (object["faceRectangle"] as? [String:Any]) != nil {
-                                    let label = UILabel(frame: CGRect(x: labelX, y: labelY, width: width!, height: height!))
-                                    label.layer.borderWidth = 2
-                                    label.layer.borderColor = UIColor.red.cgColor
-                                    label.backgroundColor = UIColor.clear
-                                    
                                     DispatchQueue.main.async {
+                                        let label = UILabel(frame: CGRect(x: labelX, y: labelY, width: width!, height: height!))
+                                        label.layer.borderWidth = 2
+                                        label.layer.borderColor = UIColor.red.cgColor
+                                        label.backgroundColor = UIColor.clear
+                                        
                                         self.view.addSubview(label)
                                     }
                                 }
@@ -205,26 +205,46 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate , U
                                 
                             }
                         }else{
-                            print("Cannot recognize celebrities, try landmarks")
-                            self.recognize(image: image, type: RecognizeType.Landmark)
+                            
+                            DispatchQueue.main.async {
+                                self.textView.text = "Cannot recognize celebrities, try landmarks"
+                            }
+                            
+                            if( type == RecognizeType.Celebrity ){
+                                self.recognize(image: image, type: RecognizeType.Landmark)
+                            }else{
+                                DispatchQueue.main.async {
+                                    self.textView.text = "Cannot recognize any celebrities or landmarks"
+                                }
+                            }
                         }
-                        
                     }else{
                         if let message = json?["message"] as? String{   // 请求的错误信息，如"Input image is too large."
                             print("request error = \(message)")
+                            
+                            DispatchQueue.main.async {
+                                self.textView.text = message
+                            }
+                            
                         }else{
                             print("bad json - do some recovery")
+                            DispatchQueue.main.async {
+                                self.textView.text = "bad json - do some recovery"
+                            }
                         }
                     }
                 } else {
                     print("bad json - do some recovery")
                 }
-                
             }
             task.resume()
         }
         
     }
+//    
+//    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+//        
+//    }
     
     func tapped(_ button: UIButton) {
         let celebraty = button.currentTitle
