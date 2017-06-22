@@ -303,14 +303,14 @@ public class UDTEventHandler : MonoBehaviour, IUserDefinedTargetEventHandler
 			    //Destroy(GameObject.Find(celebrityTags[item.name]));
             
 			//Ray ray = Camera.main.ScreenPointToRay(new Vector3(item.faceRectangle.left, Screen.height - item.faceRectangle.top));
-
-			Ray ray = Camera.main.ScreenPointToRay(new Vector3(item.faceRectangle.left + item.faceRectangle.width / 2, Screen.height - (item.faceRectangle.top + item.faceRectangle.height / 2)));
-			//var xzPlane = tagPlane.GetComponent<Collider>();
 			Quaternion quat = Quaternion.Euler(90, 0, 0);
-            Debug.Log("RecogItem.name = " + kv.Key);
+            
+			Ray ray = Camera.main.ScreenPointToRay(new Vector3(item.faceRectangle.left + item.faceRectangle.width / 2, Screen.height - (item.faceRectangle.top + item.faceRectangle.height / 2)));
+			
+			Debug.Log("RecogItem.name = " + kv.Key);
 			RaycastHit hit;
 			if (Physics.Raycast(ray, out hit, Camera.main.farClipPlane) && hit.collider.tag == tagPlane.tag)
-			{  // work
+			{  
 				Vector3 hitPoint = ray.GetPoint(hit.distance);
 				hitPoint.y = 0;
 				var newTag = Instantiate(wetag.celebrityTag, hitPoint, quat);

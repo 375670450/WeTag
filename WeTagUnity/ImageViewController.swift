@@ -60,10 +60,10 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate , U
     
     private var mediaWikiURL = "http://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrlimit=10&prop=extracts&exintro&explaintext&gsrsearch=";
     
-    private var cognitiveURL_Celebrity =  "https://api.cognitive.azure.cn/vision/v1.0/models/celebrities/analyze"
-    private var cognitiveURL_Landmark =  "https://api.cognitive.azure.cn/vision/v1.0/models/landmarks/analyze"
+    private var cognitiveURL_Celebrity =  "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/models/celebrities/analyze"
+    private var cognitiveURL_Landmark =  "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/models/landmarks/analyze"
     
-    private var auth = "974c0cbdf8b244c28024aaab33ab2fdb"
+    private var auth = "a4f002d5bd7c4531a95c047b10554a8f"
     
     func searchWiki(name: String) {
         let url = mediaWikiURL + name;
@@ -94,10 +94,8 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate , U
                 
                 for (key, _value) in pages{
                     let value = _value as? [String:Any]
-                    //                    print("_value = \(_value)")
                     
                     let index = value?["index"] as? Int
-                    //                    print("key = \(key)")
                     if index == 1 {
                         // 异步函数不方便返回值，因此暂时把查询结果直接写到对象的私有成员里，之后修改UI显示的文字为wikiInfo字符串
                         self.wikiInfo = (value?["extract"] as? String)!
@@ -131,39 +129,39 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate , U
             request.httpMethod = "POST"
             request.httpBody = imageData
             
-            let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                guard let data = data, error == nil else{
-                    print("error=\(error)")
-                    return
-                }
-                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
-                    print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                    print("response = \(response)")
-                }
-                let responseString = String(data: data, encoding: .utf8)
-                print("responseString = \(responseString)")
-                // TODO: 解析response字符串获取celebrities数组内容并更新显示tag
+let task = URLSession.shared.dataTask(with: request) { data, response, error in
+    guard let data = data, error == nil else{
+        print("error=\(error)")
+        return
+    }
+    if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+        print("statusCode should be 200, but is \(httpStatus.statusCode)")
+        print("response = \(response)")
+    }
+    let responseString = String(data: data, encoding: .utf8)
+    print("responseString = \(responseString)")
+    // TODO: 解析response字符串获取celebrities数组内容并更新显示tag
+    
+if let json = try? JSONSerialization.jsonObject(with: (responseString?.data(using: .utf8))!) as? [String:Any]{
+    if let result = json?["result"] as? [String:Any]
+        ,let items = ( type == RecognizeType.Celebrity ? result["celebrities"] : result["landmarks"] ) as? [[String:Any]]{
+        //                print("response json = \(pages)")
+        if( items.count > 0 ){
+            for object in items {
+                let name = object["name"] as? String
+                var top, left, width, height: CGFloat?
                 
-                if let json = try? JSONSerialization.jsonObject(with: (responseString?.data(using: .utf8))!) as? [String:Any]{
-                    if let result = json?["result"] as? [String:Any]
-                        ,let items = ( type == RecognizeType.Celebrity ? result["celebrities"] : result["landmarks"] ) as? [[String:Any]]{
-                        //                print("response json = \(pages)")
-                        if( items.count > 0 ){
-                            for object in items {
-                                let name = object["name"] as? String
-                                var top, left, width, height: CGFloat?
-                                
-                                if let faceRectangle = object["faceRectangle"] as? [String:Any] {
-                                    top = faceRectangle["top"] as? CGFloat
-                                    left = faceRectangle["left"] as? CGFloat
-                                    width = faceRectangle["width"] as? CGFloat
-                                    height = faceRectangle["height"] as? CGFloat
-                                }else{      // Landmark无 faceRectangle, 把标签放中间
-                                    top = image.size.height / 2
-                                    left = image.size.width / 2
-                                    width = image.size.width / 2
-                                    height = image.size.height / 2
-                                }
+                if let faceRectangle = object["faceRectangle"] as? [String:Any] {
+                    top = faceRectangle["top"] as? CGFloat
+                    left = faceRectangle["left"] as? CGFloat
+                    width = faceRectangle["width"] as? CGFloat
+                    height = faceRectangle["height"] as? CGFloat
+                }else{      // Landmark无 faceRectangle, 把标签放中间
+                    top = image.size.height / 2
+                    left = image.size.width / 2
+                    width = image.size.width / 2
+                    height = image.size.height / 2
+                }
                                 
                                 //calculate the actual number
                                 self.ratio = self.photoImageView.frame.width / self.pickedImage.size.width
@@ -189,7 +187,7 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate , U
                                 
                                 
                                 DispatchQueue.main.async {
-                                    
+                                
                                     //显示tag
                                     let buttonY = labelY - 60
                                     let buttonX = labelX
@@ -202,14 +200,8 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate , U
                                     
                                     self.view.addSubview(button)
                                 }
-                                
                             }
                         }else{
-                            
-                            DispatchQueue.main.async {
-                                self.textView.text = "Cannot recognize celebrities, try landmarks"
-                            }
-                            
                             if( type == RecognizeType.Celebrity ){
                                 self.recognize(image: image, type: RecognizeType.Landmark)
                             }else{

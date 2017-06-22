@@ -69,7 +69,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="azN-mQ-iIK">
-                        <barButtonItem key="rightBarButtonItem" title="  关于" id="Ic5-JV-HqY">
+                        <barButtonItem key="rightBarButtonItem" title="About" id="Ic5-JV-HqY">
                             <connections>
                                 <segue destination="a9b-4x-VNH" kind="show" id="fw3-OP-ngl"/>
                             </connections>

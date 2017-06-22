@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4057055E1EF8B738005EAD49 /* Data in Resources */ = {isa = PBXBuildFile; fileRef = 4057055D1EF8B738005EAD49 /* Data */; };
 		40A48B2B1EE1156600D36E16 /* Unity.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 40A48B271EE1156600D36E16 /* Unity.xcconfig */; };
 		40A48B2C1EE1156600D36E16 /* UnityUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 40A48B2A1EE1156600D36E16 /* UnityUtils.mm */; };
 		40BE530D1EF02E32000E097D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BE52FF1EF02E32000E097D /* AppDelegate.swift */; };
@@ -20,7 +21,6 @@
 		40BE53161EF02E32000E097D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BE530A1EF02E32000E097D /* main.swift */; };
 		40BE53171EF02E32000E097D /* UnityGLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BE530B1EF02E32000E097D /* UnityGLViewController.swift */; };
 		40BE53181EF02E32000E097D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BE530C1EF02E32000E097D /* ViewController.swift */; };
-		40C788E41EEE929F00DCE783 /* Data in Resources */ = {isa = PBXBuildFile; fileRef = 40C788E31EEE929F00DCE783 /* Data */; };
 		40C78ACF1EEE92B400DCE783 /* Il2CppOptions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40C788E61EEE92B400DCE783 /* Il2CppOptions.cpp */; };
 		40C78AD01EEE92B400DCE783 /* libil2cpp.def in Resources */ = {isa = PBXBuildFile; fileRef = 40C789F71EEE92B400DCE783 /* libil2cpp.def */; };
 		40C78AD11EEE92B400DCE783 /* libil2cpp.icalls in Resources */ = {isa = PBXBuildFile; fileRef = 40C789F81EEE92B400DCE783 /* libil2cpp.icalls */; };
@@ -167,6 +167,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4057055D1EF8B738005EAD49 /* Data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Data; sourceTree = "<group>"; };
 		40A46ACB1EE073A400D36E16 /* WeTagUnity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeTagUnity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40A48B271EE1156600D36E16 /* Unity.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Unity.xcconfig; sourceTree = "<group>"; };
 		40A48B281EE1156600D36E16 /* UnityBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnityBridge.h; sourceTree = "<group>"; };
@@ -183,7 +184,6 @@
 		40BE530A1EF02E32000E097D /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		40BE530B1EF02E32000E097D /* UnityGLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnityGLViewController.swift; sourceTree = "<group>"; };
 		40BE530C1EF02E32000E097D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		40C788E31EEE929F00DCE783 /* Data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Data; sourceTree = "<group>"; };
 		40C788E61EEE92B400DCE783 /* Il2CppOptions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Il2CppOptions.cpp; sourceTree = "<group>"; };
 		40C788E91EEE92B400DCE783 /* blob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = blob.h; sourceTree = "<group>"; };
 		40C788EA1EEE92B400DCE783 /* char-conversions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "char-conversions.h"; sourceTree = "<group>"; };
@@ -5326,9 +5326,9 @@
 		40A48B261EE1151200D36E16 /* UnityFix */ = {
 			isa = PBXGroup;
 			children = (
+				4057055D1EF8B738005EAD49 /* Data */,
 				40C78AD91EEE937500DCE783 /* Classes */,
 				40C788E51EEE92B400DCE783 /* Libraries */,
-				40C788E31EEE929F00DCE783 /* Data */,
 				40A48B271EE1156600D36E16 /* Unity.xcconfig */,
 				40A48B281EE1156600D36E16 /* UnityBridge.h */,
 				40A48B291EE1156600D36E16 /* UnityUtils.h */,
@@ -11171,11 +11171,11 @@
 			files = (
 				40BE53131EF02E32000E097D /* Info.plist in Resources */,
 				40BE53101EF02E32000E097D /* Main.storyboard in Resources */,
-				40C788E41EEE929F00DCE783 /* Data in Resources */,
 				40C78AD11EEE92B400DCE783 /* libil2cpp.icalls in Resources */,
 				40A48B2B1EE1156600D36E16 /* Unity.xcconfig in Resources */,
 				40BE530F1EF02E32000E097D /* LaunchScreen.storyboard in Resources */,
 				40C78AD01EEE92B400DCE783 /* libil2cpp.def in Resources */,
+				4057055E1EF8B738005EAD49 /* Data in Resources */,
 				40BE530E1EF02E32000E097D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

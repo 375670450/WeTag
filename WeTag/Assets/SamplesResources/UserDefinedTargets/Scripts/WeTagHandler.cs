@@ -24,7 +24,6 @@ public class FaceRectangle{
 	public int top;
 	public int width;
 	public int height;
-
 }
 
 [System.Serializable]
@@ -51,9 +50,6 @@ public class CognitiveResponse{
 public class WikiItem{
     public string title;
     public string extract;
-    //public string timestamp;
-    //public int size;
-    //public int wordcount;
 }
 
 [System.Serializable]
@@ -104,14 +100,15 @@ public class WeTagHandler : MonoBehaviour
 	/// <summary>
 	/// The cognitive API Auth.
 	/// </summary>
-	private string cognitiveAPIAuth = "974c0cbdf8b244c28024aaab33ab2fdb";
+	private string cognitiveAPIAuth = "a4f002d5bd7c4531a95c047b10554a8f";
 
     private bool _isRecognizing = false;
 
 	/// <summary>
 	/// The cognitive URI.
 	/// </summary>
-	private string cognitiveURI = "https://api.cognitive.azure.cn/vision/v1.0/models/{0}/analyze";
+	//private string cognitiveURI = "https://api.cognitive.azure.cn/vision/v1.0/models/{0}/analyze";
+	private string cognitiveURI = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/models/{0}/analyze";
 
 	private string mediaWikiURL = "http://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrsearch={0}&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext";
 
@@ -329,31 +326,11 @@ public class WeTagHandler : MonoBehaviour
 
             byte[] pixels = tex.EncodeToJPG();
 
-
-            if (pixels != null && pixels.Length > 0)
-            {
-                Debug.Log(
-                    "\nImage pixels: " +
-                    pixels[0] + ", " +
-                    pixels[1] + ", " +
-                    pixels[2] + ", ...\n"
-                );
-            }
-            //WWWForm form = new WWWForm();
-            //form.AddField("url", "http://www.tianya999.com/uploads/allimg/130419/2291-13041ZZ126.jpg");
-
             UnityWebRequest req = UnityWebRequest.Post(url, "");
             req.SetRequestHeader("Content-Type", "application/octet-stream");
             req.SetRequestHeader("Ocp-Apim-Subscription-Key", cognitiveAPIAuth);
 
-            //        try{
-            //SaveToFile("/screenshot", "jpg", pixels);
-            //}catch(IOException ex){
-            //    Debug.Log(ex.Message);
-            //}
-
             UploadHandler uploadHandler = new UploadHandlerRaw(pixels);
-            //uploadHandler.contentType = "application/octet-stream";  // default
             req.uploadHandler = uploadHandler;
 
             yield return req.Send();
@@ -364,25 +341,22 @@ public class WeTagHandler : MonoBehaviour
             }
             else
             {
-                string respString = System.Text.Encoding.UTF8.GetString(req.downloadHandler.data);
-                CognitiveResponse resp = JsonUtility.FromJson<CognitiveResponse>(respString);
-                //CognitiveResponse resp = JsonUtility.FromJson<CognitiveResponse>(str);
-                Debug.Log("Resp = " + respString);
-                //if (textmesh)
-                //    textmesh.text = JsonUtility.ToJson(resp.result);
-                //else
-                    //Debug.Log("textmesh is null");
-                if (resp.result != null)
-                {
-                    if( _tagOption == TagOption.Celebrity ){
-						foreach (var celebrity in resp.result.celebrities){
-							//Debug.Log(string.Format("FaceRectangle = {0}, {1}", celebrity.faceRectangle.left, celebrity.faceRectangle.top));
-							celebrity.faceRectangle.height = (int)(celebrity.faceRectangle.height * (Screen.height * 1.0 / image.Height));
-							celebrity.faceRectangle.width = (int)(celebrity.faceRectangle.width * (Screen.width * 1.0 / image.Width));
-							celebrity.faceRectangle.left = (int)(celebrity.faceRectangle.left * (Screen.width * 1.0 / image.Width));
-							celebrity.faceRectangle.top = (int)(celebrity.faceRectangle.top * (Screen.height * 1.0 / image.Height));
-							//Debug.Log(string.Format("FaceRectangle = {0}, {1}", celebrity.faceRectangle.left, celebrity.faceRectangle.top));
-						}
+            string respString = System.Text.Encoding.UTF8.GetString(req.downloadHandler.data);
+            CognitiveResponse resp = JsonUtility.FromJson<CognitiveResponse>(respString);
+            
+            Debug.Log("Resp = " + respString);
+            
+            if (resp.result != null)
+            {
+                if( _tagOption == TagOption.Celebrity ){
+                    foreach (var celebrity in resp.result.celebrities){
+                        //Debug.Log(string.Format("FaceRectangle = {0}, {1}", celebrity.faceRectangle.left, celebrity.faceRectangle.top));
+                        celebrity.faceRectangle.height = (int)(celebrity.faceRectangle.height * (Screen.height * 1.0 / image.Height));
+                        celebrity.faceRectangle.width = (int)(celebrity.faceRectangle.width * (Screen.width * 1.0 / image.Width));
+                        celebrity.faceRectangle.left = (int)(celebrity.faceRectangle.left * (Screen.width * 1.0 / image.Width));
+                        celebrity.faceRectangle.top = (int)(celebrity.faceRectangle.top * (Screen.height * 1.0 / image.Height));
+                        //Debug.Log(string.Format("FaceRectangle = {0}, {1}", celebrity.faceRectangle.left, celebrity.faceRectangle.top));
+                    }
                     }else{  // landmarks doesn't have faceRectangle, display tag in the center of screen
                         foreach(var landmark in resp.result.landmarks){
                             landmark.faceRectangle.left = Screen.width / 2;
